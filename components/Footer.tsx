@@ -83,7 +83,7 @@ export default function Footer() {
           {/* Provozovatel */}
           <div className="pt-6 pb-4 border-b border-cream/10 text-xs text-cream/40 leading-relaxed">
             <p className="text-cream/55 font-semibold mb-1">Provozovatel</p>
-            <p>KH Partners s.r.o. &nbsp;·&nbsp; IČO: 19985681 &nbsp;·&nbsp; Chudenická 1059/30, 102 00 Praha 10 – Hostivař</p>
+            <p>KSH Partners s.r.o. &nbsp;·&nbsp; IČO: 19985681 &nbsp;·&nbsp; Chudenická 1059/30, 102 00 Praha 10 – Hostivař</p>
             <p>Zapsáno v obchodním rejstříku vedeném Městským soudem v Praze, oddíl C, vložka 404410</p>
           </div>
 
