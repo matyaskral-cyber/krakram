@@ -14,6 +14,10 @@ export const metadata: Metadata = {
   description:
     "KraKrám je specializovaná prodejna psychomodulačních látek dle vyhl. č. 448/2025 Sb. Prodej výhradně osobám starším 18 let na kamenných pobočkách.",
   keywords: ["kratom", "psychomodulační látky", "krakram", "kratom pobočky"],
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "KraKrám — Psychomodulační látky",
     description: "Specializovaná prodejna psychomodulačních látek. Prodej výhradně osobám starším 18 let.",
