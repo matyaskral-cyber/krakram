@@ -40,8 +40,7 @@ export default function WhatIsKratom() {
           <div className="divider mb-8 mx-auto" />
           <h2 className="section-title mb-4">Co je kratom?</h2>
           <p className="text-ink-soft text-xl leading-relaxed max-w-2xl mx-auto">
-            Věříme, že informovaný zákazník je spokojeným zákazníkem. Zde najdete
-            vše podstatné, co byste o kratom u měli vědět.
+            Základní informace o kratomu jako psychomodulační látce.
           </p>
         </div>
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
+import CookieConsent from "@/components/CookieConsent";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -9,13 +10,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "KraKrám — Kvalitní kratom",
+  title: "KraKrám — Psychomodulační látky",
   description:
-    "KraKrám nabízí prémiový kratom v prášku. Přírodní botanická látka s důrazem na čistotu a transparentnost původu.",
-  keywords: ["kratom", "kratom prášek", "botanické látky", "přírodní produkty"],
+    "KraKrám je specializovaná prodejna psychomodulačních látek dle vyhl. č. 448/2025 Sb. Prodej výhradně osobám starším 18 let na kamenných pobočkách.",
+  keywords: ["kratom", "psychomodulační látky", "krakram", "kratom pobočky"],
   openGraph: {
-    title: "KraKrám — Kvalitní kratom",
-    description: "Prémiový kratom s důrazem na kvalitu a transparentnost.",
+    title: "KraKrám — Psychomodulační látky",
+    description: "Specializovaná prodejna psychomodulačních látek. Prodej výhradně osobám starším 18 let.",
     locale: "cs_CZ",
     type: "website",
   },
@@ -30,6 +31,7 @@ export default function RootLayout({
     <html lang="cs" className="scroll-smooth">
       <body className={`${outfit.variable} antialiased`}>
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

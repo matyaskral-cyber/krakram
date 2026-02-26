@@ -15,8 +15,7 @@ export default function Contact() {
               na pobočce
             </h2>
             <p className="text-cream/80 text-xl leading-relaxed mb-12 max-w-md">
-              Prodáváme výhradně osobně na kamenných pobočkách. Máte otázky před návštěvou?
-              Napište nám nebo zavolejte — odpovídáme zpravidla do 24 hodin.
+              Máte dotazy? Napište nebo zavolejte.
             </p>
 
             <div className="flex flex-col gap-6">
@@ -38,7 +37,7 @@ export default function Contact() {
 
               {/* Phone */}
               <a
-                href="tel:+420731536855"
+                href="tel:+420774982675"
                 className="group flex items-center gap-5"
               >
                 <div className="w-12 h-12 rounded-full border border-cream/20 flex items-center justify-center shrink-0 group-hover:border-cream/60 transition-colors">
@@ -48,7 +47,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-cream/50 text-xs uppercase tracking-widest mb-0.5">Telefon</p>
-                  <p className="text-cream text-xl font-semibold group-hover:underline">+420 731 536 855</p>
+                  <p className="text-cream text-xl font-semibold group-hover:underline">+420 774 982 675</p>
                 </div>
               </a>
             </div>
@@ -76,8 +75,7 @@ export default function Contact() {
             <div className="mt-10 pt-8 border-t border-cream/15">
               <p className="text-cream/50 text-xs leading-relaxed">
                 Prodej je určen výhradně osobám starším 18 let. Zakoupením produktů
-                zákazník stvrzuje, že splňuje tuto podmínku a bere na vědomí,
-                že produkty jsou určeny pouze pro sběratelské a výzkumné účely.
+                zákazník stvrzuje, že splňuje tuto podmínku.
               </p>
             </div>
           </div>

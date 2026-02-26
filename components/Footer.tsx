@@ -71,7 +71,7 @@ export default function Footer() {
               <div>
                 <p className="text-cream/70 font-semibold mb-2">Kontakt</p>
                 <p>info@ksh-partners.cz</p>
-                <p>+420 731 536 855</p>
+                <p>+420 774 982 675</p>
               </div>
               <div>
                 <p className="text-cream/70 font-semibold mb-2">Otevírací doba</p>

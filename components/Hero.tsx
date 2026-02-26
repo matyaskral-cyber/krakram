@@ -6,13 +6,13 @@ export default function Hero() {
           <p className="section-subtitle mb-6">Psychomodulační látky — kamenné pobočky</p>
 
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight text-ink mb-8">
-            Prémiový{" "}
-            <span className="text-forest">kratom</span>
+            Kratom —{" "}
+            <span className="text-forest">psychomodulační látka</span>
           </h1>
 
           <p className="text-ink-soft text-xl md:text-2xl leading-relaxed mb-12 max-w-2xl mx-auto">
-            Kratom pěstovaný v jihovýchodní Asii, dostupný osobně na našich pobočkách.
-            Klademe důraz na čistotu, původ a naprostou transparentnost.
+            Kratom je psychomodulační látka regulovaná dle vyhlášky č. 448/2025 Sb.
+            Prodej výhradně osobám starším 18 let na kamenných pobočkách.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -32,17 +32,11 @@ export default function Hero() {
         </div>
 
         {/* Stats strip */}
-        <div className="mt-24 pt-10 border-t border-border-green grid grid-cols-2 md:grid-cols-3 gap-10 text-center">
-          {[
-            { value: "100%", label: "Přírodní složení" },
-            { value: "Lab", label: "Testováno na čistotu" },
-            { value: "Kamenné", label: "Prodej pouze na pobočkách" },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <p className="text-3xl font-bold text-forest mb-1">{stat.value}</p>
-              <p className="text-sm text-ink-muted">{stat.label}</p>
-            </div>
-          ))}
+        <div className="mt-24 pt-10 border-t border-border-green flex justify-center text-center">
+          <div>
+            <p className="text-3xl font-bold text-forest mb-1">Kamenné</p>
+            <p className="text-sm text-ink-muted">Prodej pouze na pobočkách</p>
+          </div>
         </div>
       </div>
     </section>
