@@ -54,13 +54,13 @@ export default function Footer() {
       <footer className="bg-ink text-cream/40 px-6 md:px-12 pt-14 pb-10">
         <div className="max-w-6xl mx-auto">
           {/* Logo row */}
-          <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-10 pb-10 border-b border-cream/10">
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-6 md:gap-10 pb-10 border-b border-cream/10">
             <Image
               src="/logo.png"
               alt="KraKrám"
               width={200}
               height={200}
-              className="h-52 w-auto object-contain opacity-80"
+              className="h-28 md:h-52 w-auto object-contain opacity-80"
             />
             <div className="flex flex-col md:flex-row gap-10 text-sm text-cream/50 text-center md:text-left">
               <div>

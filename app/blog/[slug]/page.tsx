@@ -43,7 +43,7 @@ export default async function PostPage({ params }: Props) {
       <Navbar />
       <main className="min-h-screen bg-green-bg">
         {/* Hero */}
-        <section className="bg-green-bg-dark pt-40 pb-16 px-6 md:px-12">
+        <section className="bg-green-bg-dark pt-28 md:pt-40 pb-10 md:pb-16 px-6 md:px-12">
           <div className="max-w-3xl mx-auto">
             <Link
               href="/blog"
@@ -76,7 +76,7 @@ export default async function PostPage({ params }: Props) {
 
         {/* CTA */}
         <section className="px-6 md:px-12 pb-16">
-          <div className="max-w-3xl mx-auto bg-forest rounded-2xl p-10 text-cream flex flex-col md:flex-row md:items-center gap-6 justify-between">
+          <div className="max-w-3xl mx-auto bg-forest rounded-2xl p-6 md:p-10 text-cream flex flex-col md:flex-row md:items-center gap-6 justify-between">
             <div>
               <h3 className="text-xl font-bold mb-2">Máte otázky?</h3>
               <p className="text-cream/75 text-sm">Rádi vám poradíme — napište nebo zavolejte.</p>

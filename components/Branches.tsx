@@ -37,7 +37,7 @@ export default function Branches() {
             alt="KraKrám"
             width={220}
             height={220}
-            className="h-36 w-auto object-contain mb-8 mx-auto"
+            className="h-24 md:h-36 w-auto object-contain mb-6 md:mb-8 mx-auto"
           />
           <p className="section-subtitle mb-4">Kde nás najdete</p>
           <div className="divider mb-8 mx-auto" />
@@ -48,7 +48,7 @@ export default function Branches() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
           {branches.map((b) => (
             <div
               key={b.city}

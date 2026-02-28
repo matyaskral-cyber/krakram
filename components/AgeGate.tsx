@@ -24,7 +24,7 @@ export default function AgeGate() {
 
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-ink/80 backdrop-blur-sm px-4">
-      <div className="bg-green-bg rounded-2xl shadow-2xl max-w-md w-full p-10 flex flex-col items-center text-center">
+      <div className="bg-green-bg rounded-2xl shadow-2xl max-w-md w-full p-6 md:p-10 flex flex-col items-center text-center">
         {/* Logo */}
         <Image
           src="/logo.png"
@@ -41,7 +41,7 @@ export default function AgeGate() {
         <p className="text-ink-soft leading-relaxed mb-2">
           Tento web je určen výhradně pro osoby starší <strong>18 let</strong>.
         </p>
-        <p className="text-ink-muted text-sm mb-10">
+        <p className="text-ink-muted text-sm mb-6 md:mb-10">
           Pokračováním potvrzujete, že jste dovršili 18 let věku.
         </p>
 

@@ -2,19 +2,19 @@ export default function Contact() {
   return (
     <section id="kontakt" className="section-padding bg-forest text-cream">
       <div className="max-w-6xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid gap-10 lg:gap-16 lg:grid-cols-2 items-center">
           {/* Left */}
           <div>
             <p className="text-forest-muted text-sm uppercase tracking-widest font-medium mb-4">
               Kontakt
             </p>
             <div className="w-12 h-px bg-cream/30 mb-8" />
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6">
               Navštivte nás
               <br />
               na pobočce
             </h2>
-            <p className="text-cream/80 text-xl leading-relaxed mb-12 max-w-md">
+            <p className="text-cream/80 text-base md:text-xl leading-relaxed mb-8 md:mb-12 max-w-md">
               Máte dotazy? Napište nebo zavolejte.
             </p>
 
@@ -31,7 +31,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-cream/50 text-xs uppercase tracking-widest mb-0.5">E-mail</p>
-                  <p className="text-cream text-xl font-semibold group-hover:underline">info@ksh-partners.cz</p>
+                  <p className="text-cream text-base md:text-xl font-semibold group-hover:underline">info@ksh-partners.cz</p>
                 </div>
               </a>
 
@@ -47,7 +47,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-cream/50 text-xs uppercase tracking-widest mb-0.5">Telefon</p>
-                  <p className="text-cream text-xl font-semibold group-hover:underline">+420 774 982 675</p>
+                  <p className="text-cream text-base md:text-xl font-semibold group-hover:underline">+420 774 982 675</p>
                 </div>
               </a>
             </div>
@@ -67,12 +67,12 @@ export default function Contact() {
                   <span className="text-forest-muted font-mono text-sm shrink-0 mt-0.5">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <p className="text-cream/85 text-xl leading-relaxed">{step}</p>
+                  <p className="text-cream/85 text-base md:text-xl leading-relaxed">{step}</p>
                 </li>
               ))}
             </ol>
 
-            <div className="mt-10 pt-8 border-t border-cream/15">
+            <div className="mt-6 md:mt-10 pt-6 md:pt-8 border-t border-cream/15">
               <p className="text-cream/50 text-xs leading-relaxed">
                 Prodej je určen výhradně osobám starším 18 let. Zakoupením produktů
                 zákazník stvrzuje, že splňuje tuto podmínku.

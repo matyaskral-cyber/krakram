@@ -25,13 +25,13 @@ export default function BlogPage() {
       <Navbar />
       <main className="min-h-screen bg-green-bg">
         {/* Header */}
-        <section className="bg-green-bg-dark pt-40 pb-20 px-6 md:px-12">
+        <section className="bg-green-bg-dark pt-28 md:pt-40 pb-12 md:pb-20 px-6 md:px-12">
           <div className="max-w-6xl mx-auto">
             <p className="text-sm uppercase tracking-widest font-medium text-forest-muted mb-4">
               Blog
             </p>
             <div className="w-12 h-px bg-forest mb-8" />
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-ink mb-4">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-ink mb-4">
               Průvodce světem kratom u
             </h1>
             <p className="text-ink-soft text-lg max-w-xl leading-relaxed">
