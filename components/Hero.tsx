@@ -1,11 +1,11 @@
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden" style={{background: "linear-gradient(to bottom, #8FCBC4 0%, #D4EDEA 25%, #F7F4EF 60%, #F7F4EF 100%)"}}>
-      <div className="relative max-w-6xl mx-auto px-6 md:px-12 pt-48 pb-20 w-full">
+      <div className="relative max-w-6xl mx-auto px-6 md:px-12 pt-32 md:pt-48 pb-20 w-full">
         <div className="text-center max-w-4xl mx-auto">
-          <p className="section-subtitle mb-6">Psychomodulační látky — kamenné pobočky</p>
+          <p className="section-subtitle mb-4 md:mb-6">Psychomodulační látky — kamenné pobočky</p>
 
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight text-ink mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.1] md:leading-[1.05] tracking-tight text-ink mb-6 md:mb-8">
             Kratom —{" "}
             <span className="text-forest">psychomodulační látka</span>
           </h1>
