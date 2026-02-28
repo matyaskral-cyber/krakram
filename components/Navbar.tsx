@@ -37,6 +37,7 @@ export default function Navbar() {
             width={200}
             height={200}
             className="h-20 w-auto object-contain"
+            sizes="(max-width: 768px) 80px, 200px"
             priority
           />
         </a>

@@ -32,6 +32,7 @@ export default function AgeGate() {
           width={160}
           height={80}
           className="h-20 w-auto object-contain mb-8"
+          sizes="120px"
           priority
         />
 
