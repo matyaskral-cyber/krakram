@@ -94,7 +94,11 @@ export default function Footer() {
               Prodej výhradně osobám starším 18 let. Produkty jsou psychomodulační látky
               ve smyslu vyhl. č.&nbsp;448/2025 Sb. Prodej pouze na kamenných pobočkách.
             </p>
-            <a href="/blog" className="text-cream/50 hover:text-cream transition-colors">Blog</a>
+            <div className="flex gap-4">
+              <a href="/blog" className="text-cream/50 hover:text-cream transition-colors">Blog</a>
+              <a href="/obchodni-podminky" className="text-cream/50 hover:text-cream transition-colors">Obchodní podmínky</a>
+              <a href="/zasady-cookies" className="text-cream/50 hover:text-cream transition-colors">Cookies & GDPR</a>
+            </div>
           </div>
         </div>
       </footer>
