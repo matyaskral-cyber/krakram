@@ -19,7 +19,7 @@ const branches = [
     zip: "377 01 Jindřichův Hradec",
     hours: "Po–Ne: 10:00–20:00",
     status: "soon",
-    badge: "Otevíráme 10. 3.",
+    badge: "Otevíráme 29. 3.",
     mapSrc:
       "https://maps.google.com/maps?q=Klášterská+79,+377+01+Jindřichův+Hradec&output=embed&hl=cs&z=16",
     mapsLink:
