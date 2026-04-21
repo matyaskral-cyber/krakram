@@ -8,8 +8,7 @@ const branches = [
     hours: "Po–Ne: 10:00–20:00",
     status: "open",
     badge: null,
-    mapSrc:
-      "https://maps.google.com/maps?q=nám.+F.+Křižíka+496%2F10,+Tábor&output=embed&hl=cs&z=16",
+    photo: "/pobocka-tabor.jpg",
     mapsLink:
       "https://maps.google.com/maps?q=nám.+F.+Křižíka+496%2F10,+Tábor",
   },
@@ -20,8 +19,7 @@ const branches = [
     hours: "Po–Ne: 10:00–20:00",
     status: "open",
     badge: null,
-    mapSrc:
-      "https://maps.google.com/maps?q=Klášterská+79,+377+01+Jindřichův+Hradec&output=embed&hl=cs&z=16",
+    photo: "/pobocka-jh.jpg",
     mapsLink:
       "https://maps.google.com/maps?q=Klášterská+79,+377+01+Jindřichův+Hradec",
   },
@@ -32,8 +30,7 @@ const branches = [
     hours: "Po–Ne: 10:00–20:00",
     status: "soon",
     badge: "Nová pobočka",
-    mapSrc:
-      "https://maps.google.com/maps?q=náměstí+Palackého+61,+393+01+Pelhřimov&output=embed&hl=cs&z=16",
+    photo: null,
     mapsLink:
       "https://maps.google.com/maps?q=náměstí+Palackého+61,+393+01+Pelhřimov",
   },
@@ -70,8 +67,8 @@ export default function Branches() {
                   : "border-border-green"
               } bg-green-bg flex flex-col`}
             >
-              {/* Map */}
-              <div className="relative h-56 w-full bg-green-bg-dark">
+              {/* Photo */}
+              <div className="relative h-56 w-full bg-green-bg-dark overflow-hidden">
                 {b.status === "soon" && (
                   <div className="absolute inset-0 bg-ink/20 z-10 flex items-center justify-center">
                     <span className="bg-forest text-cream text-sm font-semibold px-5 py-2 rounded-full">
@@ -79,16 +76,21 @@ export default function Branches() {
                     </span>
                   </div>
                 )}
-                <iframe
-                  src={b.mapSrc}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`Mapa pobočky ${b.city}`}
-                />
+                {b.photo ? (
+                  <Image
+                    src={b.photo}
+                    alt={`Pobočka ${b.city}`}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-ink-muted">
+                    <svg className="w-12 h-12 opacity-30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                )}
               </div>
 
               {/* Info */}
