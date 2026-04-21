@@ -18,12 +18,24 @@ const branches = [
     address: "Klášterská 79/II",
     zip: "377 01 Jindřichův Hradec",
     hours: "Po–Ne: 10:00–20:00",
-    status: "soon",
-    badge: "Otevíráme 29. 3.",
+    status: "open",
+    badge: null,
     mapSrc:
       "https://maps.google.com/maps?q=Klášterská+79,+377+01+Jindřichův+Hradec&output=embed&hl=cs&z=16",
     mapsLink:
       "https://maps.google.com/maps?q=Klášterská+79,+377+01+Jindřichův+Hradec",
+  },
+  {
+    city: "Pelhřimov",
+    address: "náměstí Palackého 61",
+    zip: "393 01 Pelhřimov",
+    hours: "Po–Ne: 10:00–20:00",
+    status: "soon",
+    badge: "Nová pobočka",
+    mapSrc:
+      "https://maps.google.com/maps?q=náměstí+Palackého+61,+393+01+Pelhřimov&output=embed&hl=cs&z=16",
+    mapsLink:
+      "https://maps.google.com/maps?q=náměstí+Palackého+61,+393+01+Pelhřimov",
   },
 ];
 
@@ -48,7 +60,7 @@ export default function Branches() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {branches.map((b) => (
             <div
               key={b.city}
