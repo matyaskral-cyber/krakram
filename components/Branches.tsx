@@ -146,6 +146,18 @@ export default function Branches() {
             </div>
           ))}
         </div>
+        {/* CTA — návrh pobočky */}
+        <div className="mt-10 text-center">
+          <p className="text-ink-soft text-sm">
+            Máš návrh na místo pro další pobočku?{" "}
+            <a
+              href="mailto:info@ksh-partners.cz"
+              className="text-forest font-semibold hover:underline underline-offset-2"
+            >
+              Napiš nám na info@ksh-partners.cz
+            </a>
+          </p>
+        </div>
       </div>
     </section>
   );
