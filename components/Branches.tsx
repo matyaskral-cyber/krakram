@@ -25,8 +25,8 @@ const branches = [
   },
   {
     city: "Pelhřimov",
-    address: "náměstí Palackého 61",
-    zip: "393 01 Pelhřimov",
+    address: "Pelhřimov",
+    zip: "",
     hours: "Po–Ne: 10:00–20:00",
     status: "soon",
     badge: "Připravujeme pobočku",
