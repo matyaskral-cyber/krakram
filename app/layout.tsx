@@ -36,7 +36,7 @@ export default function RootLayout({
       <body className={`${outfit.variable} antialiased`}>
         {/* Banner — nová pobočka Pelhřimov */}
         <div className="bg-forest text-cream text-center text-sm font-semibold py-2.5 px-4">
-          🎉 Otevíráme novou pobočku v Pelhřimově — náměstí Palackého 61&nbsp;
+          🎉 Otevíráme novou pobočku v Pelhřimově!&nbsp;
           <a href="#pobocky" className="underline underline-offset-2 opacity-80 hover:opacity-100">
             Zjistit více
           </a>
