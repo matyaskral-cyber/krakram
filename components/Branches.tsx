@@ -24,15 +24,15 @@ const branches = [
       "https://maps.google.com/maps?q=Klášterská+79,+377+01+Jindřichův+Hradec",
   },
   {
-    city: "Pelhřimov",
-    address: "Pelhřimov",
+    city: "Dačice",
+    address: "Dačice",
     zip: "",
     hours: "Po–Ne: 10:00–19:00",
     status: "soon",
     badge: "Připravujeme pobočku",
     photo: null,
     mapsLink:
-      "https://maps.google.com/maps?q=náměstí+Palackého+61,+393+01+Pelhřimov",
+      "https://maps.google.com/maps?q=Dačice",
   },
 ];
 
