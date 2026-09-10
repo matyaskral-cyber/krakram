@@ -79,7 +79,9 @@ export default function Footer() {
               </div>
               <div>
                 <p className="text-cream/70 font-semibold mb-2">Otevírací doba</p>
-                <p>Po–Ne: 10:00–19:00</p>
+                <p>Tábor: Po–So 11:00–19:00</p>
+                <p>J. Hradec: Po–So 10:00–19:00</p>
+                <p>Neděle: 13:00–19:00</p>
               </div>
             </div>
           </div>

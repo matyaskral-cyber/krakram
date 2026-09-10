@@ -32,8 +32,8 @@ STRUKTURA
 - next.config.ts — security headers
 
 POBOČKY (dle rozhodnutí MZ ČR PML-185/2026 z 10.9.2026, Downloads/priloha_1764837343_0_Roz-PML-Haruda_04-26-ORIGINAL.pdf)
-- Tábor, nám. F. Křižíka 496/10, 390 01 — otevřeno, Po–Ne 10–19
-- Jindřichův Hradec, Klášterská 79/II, 377 01 — otevřeno, Po–Ne 10–19
+- Tábor, nám. F. Křižíka 496/10, 390 01 — otevřeno, Po–So 11–19, Ne 13–19
+- Jindřichův Hradec, Klášterská 79/II, 377 01 — otevřeno, Po–So 10–19, Ne 13–19
 - Dačice, Palackého nám. 54, 380 01 — připravujeme (nájem Dvorec na Dačicích, Obchod 2)
 - Moravské Budějovice, náměstí ČSA 37, 676 02 — připravujeme
 - Havlíčkův Brod, Nádražní 90, 580 01 — připravujeme
@@ -43,7 +43,7 @@ BARVY (tailwind.config.ts)
 - forest #4A8B80, forest-dark #2D6B62, green-bg #B8DDD8, cream #F7F4EF, ink #1A1A18
 
 HOTOVO 10.9.2026
-- 5 poboček dle povolení, hodiny sjednoceny 10–19, banner + patička, FAQ a blog přepsány na PML režim,
+- 5 poboček dle povolení, hodiny Tábor 11–19 / JH 10–19 / Ne 13–19, banner + patička, FAQ a blog přepsány na PML režim,
   překlepy "kratom u", sitemap + robots na www.krakram.com
 
 TODO
