@@ -5,11 +5,11 @@ import { useState } from "react";
 const faqs = [
   {
     q: "Je kratom v ČR legální?",
-    a: "Ano. Kratom není v České republice zařazen mezi omamné ani psychotropní látky. Jeho prodej a osobní držení jsou zcela legální. Není však registrován jako léčivo a nesmí být propagován jako takový.",
+    a: "Ano, ale je regulovaný. Od 12. 11. 2025 je kratom v České republice zařazen mezi psychomodulační látky (PML) podle zákona č. 167/1998 Sb., o návykových látkách, a vyhlášky č. 448/2025 Sb. Prodávat ho smí pouze subjekt s povolením Ministerstva zdravotnictví, výhradně osobám starším 18 let. KraKrám toto povolení má (rozhodnutí MZ ČR pro všechny naše provozovny). Kratom není registrován jako léčivo ani potravina.",
   },
   {
     q: "Kde vás najdu?",
-    a: "Prodáváme výhradně osobně na našich kamenných pobočkách. Přesné adresy a otevírací dobu zjistíte na vyžádání — stačí zavolat nebo napsat e-mail.",
+    a: "Prodáváme výhradně osobně na kamenných pobočkách. Otevřeno máme v Táboře (nám. F. Křižíka 496/10) a v Jindřichově Hradci (Klášterská 79/II), denně 10:00–19:00. Připravujeme pobočky v Dačicích, Moravských Budějovicích a Havlíčkově Brodě. Přesné adresy a mapu najdete v sekci Pobočky.",
   },
   {
     q: "Jak jsou produkty testovány?",

@@ -13,7 +13,7 @@ export const posts: Post[] = [
     slug: "co-je-kratom-pruvodce-pro-zacatecniky",
     title: "Co je kratom? Kompletní průvodce pro začátečníky",
     description:
-      "Vše, co potřebujete vědět o kratom u — od botaniky přes původ až po způsoby užívání. Průvodce pro ty, kdo se s kratomem setkávají poprvé.",
+      "Vše, co potřebujete vědět o kratomu — od botaniky přes původ až po způsoby užívání. Průvodce pro ty, kdo se s kratomem setkávají poprvé.",
     date: "2025-02-10",
     category: "Základy",
     readTime: 7,
@@ -21,9 +21,9 @@ export const posts: Post[] = [
 <p>Kratom (<em>Mitragyna speciosa</em>) je tropický strom z čeledi mořenovitých, příbuzný kávovníku. Pochází z jihovýchodní Asie — především z Indonésie, Malajsie a Thajska — kde má tisíciletou historii tradičního využití.</p>
 
 <h2>Jak kratom vypadá?</h2>
-<p>Kratom je stálezelený strom dosahující výšky 4 až 25 metrů. Jeho listy jsou velké, tmavě zelené a obsahují síť výrazných žilek. Právě barva těchto žilek — bílá, zelená nebo červená — určuje tzv. „kmen" kratom u a do značné míry i jeho alkaloidový profil.</p>
+<p>Kratom je stálezelený strom dosahující výšky 4 až 25 metrů. Jeho listy jsou velké, tmavě zelené a obsahují síť výrazných žilek. Právě barva těchto žilek — bílá, zelená nebo červená — určuje tzv. „kmen" kratomu a do značné míry i jeho alkaloidový profil.</p>
 
-<h2>Jak se kratom užívá?</h2>
+<h2>Jak se kratomužívá?</h2>
 <p>Tradiční způsob v jihovýchodní Asii bylo žvýkání čerstvých listů nebo vaření čaje. V Evropě se kratom nejčastěji prodává jako jemný prášek ze sušených a mletých listů. Ten se smíchá s vodou, džusem nebo se zapíjí — metoda zvaná <em>toss and wash</em>.</p>
 
 <h2>Na co si dát pozor?</h2>
@@ -35,9 +35,9 @@ export const posts: Post[] = [
   },
   {
     slug: "druhy-kratom-bila-zelena-cervena-zilka",
-    title: "Jaké jsou druhy kratom u? Bílá, zelená a červená žilka",
+    title: "Jaké jsou druhy kratomu? Bílá, zelená a červená žilka",
     description:
-      "Průvodce odrůdami kratom u podle barvy žilnatiny. Jaký je rozdíl mezi bílou, zelenou a červenou žilkou a jak si vybrat tu správnou?",
+      "Průvodce odrůdami kratomu podle barvy žilnatiny. Jaký je rozdíl mezi bílou, zelenou a červenou žilkou a jak si vybrat tu správnou?",
     date: "2025-02-18",
     category: "Průvodce",
     readTime: 6,
@@ -64,31 +64,39 @@ export const posts: Post[] = [
     slug: "kratom-a-zakon-v-cr",
     title: "Kratom a zákon v ČR: Vše, co potřebujete vědět",
     description:
-      "Je kratom v České republice legální? Jaký je jeho právní status a co říká zákon? Přehledné shrnutí aktuální situace.",
-    date: "2025-02-24",
+      "Je kratom v České republice legální? Od listopadu 2025 je regulován jako psychomodulační látka. Přehledné shrnutí toho, co to znamená pro zákazníky i prodejce.",
+    date: "2025-11-20",
     category: "Legislativa",
     readTime: 5,
     content: `
-<p>Právní status kratom u je jednou z nejčastěji pokládaných otázek. Odpověď pro Českou republiku je jednoduchá — kratom je legální. Pojďme si to ale rozebrat důkladněji.</p>
+<p>Právní status kratomu je jednou z nejčastěji pokládaných otázek. Odpověď pro Českou republiku zní: kratom je legální, ale od 12. 11. 2025 je <strong>regulovaný jako psychomodulační látka</strong>. Pojďme si to rozebrat.</p>
 
-<h2>Co říká český zákon?</h2>
-<p>Kratom (<em>Mitragyna speciosa</em>) ani jeho hlavní alkaloidy (mitragynin, 7-hydroxymitragynin) nejsou v České republice zařazeny na seznam omamných nebo psychotropních látek podle zákona č. 167/1998 Sb. o návykových látkách. Jeho prodej, držení ani osobní užívání proto nejsou trestné.</p>
+<h2>Co je psychomodulační látka?</h2>
+<p>Novela zákona č. 167/1998 Sb., o návykových látkách, zavedla novou kategorii tzv. psychomodulačních látek (PML). Jde o látky s psychoaktivními účinky, které nejsou zařazeny mezi omamné a psychotropní látky, ale stát u nich chce mít pod kontrolou, kdo a komu je prodává. Kratom (<em>Mitragyna speciosa</em>) byl na seznam PML zařazen nařízením vlády č. 456/2025 Sb. s účinností od 12. 11. 2025.</p>
 
-<h2>Jak je to s prodejem?</h2>
-<p>Kratom v ČR smí být prodáván jako botanický nebo sběratelský produkt. Nesmí být označován ani propagován jako potravina, doplněk stravy nebo léčivý přípravek — to by vyžadovalo příslušná povolení a registrace, která kratom nemá.</p>
+<h2>Kdo smí kratom prodávat?</h2>
+<p>Pouze subjekt, který má <strong>povolení k nakládání s psychomodulačními látkami</strong> vydané Ministerstvem zdravotnictví ČR, a to jen na konkrétní schválené provozovny. KraKrám toto povolení má pro všechny své pobočky. Podrobnosti o označování, zdravotních varováních a informacích pro spotřebitele stanoví vyhláška č. 448/2025 Sb.</p>
+
+<h2>Co to znamená pro zákazníka?</h2>
+<ul>
+  <li><strong>Pouze od 18 let.</strong> Prodejce je povinen ověřit věk, při pochybnostech vyžaduje doklad.</li>
+  <li><strong>Povinné informace.</strong> Každý výrobek nese zdravotní upozornění a informace pro spotřebitele podle vyhlášky. Prodejce nesmí kratom prezentovat jako lék, potravinu ani doplněk stravy.</li>
+  <li><strong>Zákaz řízení.</strong> Výrobek se nesmí užívat při řízení, bezprostředně před ním ani v době kratší než 8 hodin před řízením.</li>
+  <li><strong>Osobní držení a užívání</strong> dospělou osobou není trestné.</li>
+</ul>
 
 <h2>Situace ve světě</h2>
-<p>Právní status kratom u se liší stát od státu. Je zakázán například v Austrálii, Thajsku (historicky, dnes částečně legální), Malajsii nebo ve Švédsku. V USA je legální na federální úrovni, ale některé státy ho zakázaly. Před cestou do zahraničí proto vždy doporučujeme ověřit místní legislativu.</p>
+<p>Právní status kratomu se liší stát od státu. Je zakázán například v Austrálii, Malajsii nebo ve Švédsku, v Thajsku byl po letech zákazu částečně legalizován. V USA je legální na federální úrovni, ale některé státy ho zakázaly. Před cestou do zahraničí proto vždy doporučujeme ověřit místní legislativu.</p>
 
 <h2>Závěr</h2>
-<p>V ČR se kratom nachází v právně jasném prostoru — je legální, volně prodejný jako botanický produkt. Situaci průběžně sledujeme a v případě legislativních změn budeme zákazníky informovat.</p>
+<p>V ČR má kratom jasný právní rámec: je legální psychomodulační látkou, kterou smí prodávat pouze držitelé povolení, výhradně dospělým a s povinnými informacemi pro spotřebitele. Situaci průběžně sledujeme a v případě legislativních změn budeme zákazníky informovat.</p>
     `,
   },
   {
     slug: "jak-davkovat-kratom",
     title: "Jak dávkovat kratom? Průvodce pro bezpečné užívání",
     description:
-      "Kolik gramu kratom u je správně? Praktický průvodce dávkováním pro začátečníky i pokročilé uživatele s důrazem na bezpečnost.",
+      "Kolik gramu kratomu je správně? Praktický průvodce dávkováním pro začátečníky i pokročilé uživatele s důrazem na bezpečnost.",
     date: "2025-03-03",
     category: "Bezpečnost",
     readTime: 6,
@@ -128,13 +136,13 @@ export const posts: Post[] = [
 <p>Věděli jste, že kratom a káva jsou botaničtí příbuzní? Oba stromy patří do čeledi mořenovitých (Rubiaceae). Tím ale podobnosti z velké části končí.</p>
 
 <h2>Společné rysy</h2>
-<p>Kratom i káva pocházejí z tropických oblastí, obsahují alkaloidy působící na nervový systém a mají v zemích původu dlouhou historii tradičního užívání. Oba jsou v ČR legální a volně dostupné.</p>
+<p>Kratom i káva pocházejí z tropických oblastí, obsahují alkaloidy působící na nervový systém a mají v zemích původu dlouhou historii tradičního užívání. Oba jsou v ČR legální — kratom je však od listopadu 2025 regulován jako psychomodulační látka a prodává se pouze dospělým u držitelů povolení.</p>
 
 <h2>Hlavní rozdíly</h2>
 <p>Káva obsahuje kofein, který blokuje adenosinové receptory a způsobuje stimulaci. Kratom naproti tomu obsahuje mitragynin a 7-hydroxymitragynin, které působí na různé receptory — a to bifázicky: v nižších dávkách stimulačně, ve vyšších spíše uklidňujícím způsobem.</p>
 
 <h2>Intenzita a délka účinků</h2>
-<p>Účinky kávy nastupují rychle (15–30 minut) a trvají 3–5 hodin. U kratom u je nástup pomalejší (30–60 minut), ale účinky mohou přetrvávat 4–6 hodin. Kratom je v tomto smyslu „pomalejší a delší".</p>
+<p>Účinky kávy nastupují rychle (15–30 minut) a trvají 3–5 hodin. U kratomu je nástup pomalejší (30–60 minut), ale účinky mohou přetrvávat 4–6 hodin. Kratom je v tomto smyslu „pomalejší a delší".</p>
 
 <h2>Závěr</h2>
 <p>Přestože jsou kratom a káva příbuzné rostliny, jedná se o zásadně odlišné látky s různými mechanismy účinku. Kratom vyžaduje podstatně více respektu a opatrnosti — zejména co se dávkování a frekvence týče.</p>

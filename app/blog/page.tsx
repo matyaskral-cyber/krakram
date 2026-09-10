@@ -8,7 +8,7 @@ import { posts, formatDate } from "@/lib/posts";
 export const metadata: Metadata = {
   title: "Blog — KraKrám | Kratom průvodce a informace",
   description:
-    "Čtěte o kratom u vše podstatné. Průvodce dávkováním, druhy odrůd, právní status v ČR a další odborné články.",
+    "Čtěte o kratomu vše podstatné. Průvodce dávkováním, druhy odrůd, právní status v ČR a další odborné články.",
   alternates: {
     canonical: "/blog",
   },
@@ -32,10 +32,10 @@ export default function BlogPage() {
             </p>
             <div className="w-12 h-px bg-forest mb-8" />
             <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight text-ink mb-4">
-              Průvodce světem kratom u
+              Průvodce světem kratomu
             </h1>
             <p className="text-ink-soft text-lg max-w-xl leading-relaxed">
-              Informace, návody a zajímavosti pro každého, kdo chce o kratom u vědět víc.
+              Informace, návody a zajímavosti pro každého, kdo chce o kratomu vědět víc.
             </p>
           </div>
         </section>

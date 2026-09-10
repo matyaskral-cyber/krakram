@@ -25,14 +25,36 @@ const branches = [
   },
   {
     city: "Dačice",
-    address: "Dačice",
-    zip: "",
+    address: "Palackého nám. 54",
+    zip: "380 01 Dačice",
     hours: "Po–Ne: 10:00–19:00",
     status: "soon",
     badge: "Připravujeme pobočku",
     photo: null,
     mapsLink:
-      "https://maps.google.com/maps?q=Dačice",
+      "https://maps.google.com/maps?q=Palackého+nám.+54,+380+01+Dačice",
+  },
+  {
+    city: "Moravské Budějovice",
+    address: "náměstí ČSA 37",
+    zip: "676 02 Moravské Budějovice",
+    hours: "Po–Ne: 10:00–19:00",
+    status: "soon",
+    badge: "Připravujeme pobočku",
+    photo: null,
+    mapsLink:
+      "https://maps.google.com/maps?q=náměstí+ČSA+37,+676+02+Moravské+Budějovice",
+  },
+  {
+    city: "Havlíčkův Brod",
+    address: "Nádražní 90",
+    zip: "580 01 Havlíčkův Brod",
+    hours: "Po–Ne: 10:00–19:00",
+    status: "soon",
+    badge: "Připravujeme pobočku",
+    photo: null,
+    mapsLink:
+      "https://maps.google.com/maps?q=Nádražní+90,+580+01+Havlíčkův+Brod",
   },
 ];
 

@@ -1,0 +1,61 @@
+KRAKRÁM — WEB (KSH Partners s.r.o.)
+====================================
+Aktualizováno: 10.9.2026
+
+CO TO JE
+- Prezentační web prodejen psychomodulačních látek (kratom) KraKrám.
+- Provozovatel KSH Partners s.r.o., IČO 19985681, kontakt info@ksh-partners.cz, +420 774 982 675.
+
+KDE BĚŽÍ
+- ŽIVĚ: https://www.krakram.com  (krakram.com -> 307 na www; Vercel, cname.vercel-dns.com)
+- Vercel preview: https://krakram.vercel.app
+- krakram.cz = WEDOS parkovací IP 185.8.237.22, NEJEDE (ani není přesměrována)
+- GitHub: https://github.com/matyaskral-cyber/krakram (main, auto-deploy Vercel)
+- Lokální repo: /Users/matyaskral/Desktop/WEBY/krakram
+- STARÁ kopie (únor 2026, nepoužívat): /Users/matyaskral/Downloads/krakram
+
+STACK
+- Next.js 16 (App Router), React 19, TypeScript, Tailwind 3.4, font Outfit
+- Žádné API, žádná DB — vše statické, blog je hardcoded v lib/posts.ts (HTML v template stringu)
+- node v25, `npm ci` hotovo 10.9.2026; dev: `npm run dev` (localhost:3000)
+
+STRUKTURA
+- app/layout.tsx        — metadata, banner "Otevíráme novou pobočku v Dačicích", CookieConsent
+- app/page.tsx          — homepage: AgeGate, Navbar, Hero, About, WhatIsKratom, Branches, FAQ, Contact, Footer
+- app/blog/page.tsx     — výpis článků;  app/blog/[slug]/page.tsx — detail (SSG)
+- app/obchodni-podminky/page.tsx, app/zasady-cookies/page.tsx
+- components/Branches.tsx — DATA POBOČEK (adresy, hodiny, fotky, maps odkazy)
+- components/Footer.tsx   — povinné zdravotní varování (vyhl. 448/2025 §12) + adresy + provozovatel
+- components/AgeGate.tsx  — 18+ brána (sessionStorage), CookieConsent.tsx (localStorage, bez GA napojení)
+- lib/posts.ts            — 5 článků blogu
+- public/: logo.png, pobocka-tabor.jpg, pobocka-jh.jpg, robots.txt, sitemap.xml
+- next.config.ts — security headers
+
+POBOČKY (stav v kódu)
+- Tábor, nám. F. Křižíka 496/10, 390 01 — otevřeno, Po–Ne 10–19
+- Jindřichův Hradec, Klášterská 79/II, 377 01 — otevřeno, Po–Ne 10–19
+- Dačice — "Připravujeme pobočku", BEZ přesné adresy/PSČ, bez fotky
+
+BARVY (tailwind.config.ts)
+- forest #4A8B80, forest-dark #2D6B62, green-bg #B8DDD8, cream #F7F4EF, ink #1A1A18
+
+ZNÁMÉ NESROVNALOSTI / TODO
+- Footer: otevírací doba 10:00–20:00, ale pobočky mají 10:00–19:00 -> sjednotit
+- Footer: chybí Dačice v seznamu poboček
+- FAQ "Kde vás najdu?" říká "adresy na vyžádání" — zastaralé, adresy jsou veřejně na webu
+- FAQ "Je kratom legální?" + blog "kratom-a-zakon-v-cr" tvrdí "není regulován" — v rozporu
+  se sekcí Co je kratom (PML od 12.11.2025, vyhl. 448/2025) -> aktualizovat na PML režim
+- Blog: překlepy "kratom u" (mezera) v titulcích a popisech
+- sitemap.xml: chybí /blog, /blog/*, /obchodni-podminky
+- Dačice: doplnit adresu/PSČ/fotku až bude známa
+- CookieConsent ukládá volbu, ale nic reálně nezapíná (žádná analytika nasazena)
+- krakram.cz: buď přesměrovat na .com, nebo nechat být
+
+DEPLOY
+- commit + push na main -> Vercel nasadí automaticky (do ~1–2 min)
+
+SOUVISEJÍCÍ DOKUMENTY (mimo web)
+- Desktop/Dokumenty/KHS Partners s.r.o./KraKram_cheatsheet.docx — produkty, ceny (50g/25g), komunikace s obsluhou
+- Desktop/Dokumenty/KHS Partners s.r.o./KraKram_todo.docx — checklist směny
+- Downloads/krakram_cenik_moderni_cz.pdf.pdf — ceník
+- Downloads/krakram_recenze.png, krakram_nfc_recenze.png, ig_post_krakram_v4.png — grafika
