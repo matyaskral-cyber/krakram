@@ -31,23 +31,23 @@ STRUKTURA
 - public/: logo.png, pobocka-tabor.jpg, pobocka-jh.jpg, robots.txt, sitemap.xml
 - next.config.ts — security headers
 
-POBOČKY (stav v kódu)
+POBOČKY (dle rozhodnutí MZ ČR PML-185/2026 z 10.9.2026, Downloads/priloha_1764837343_0_Roz-PML-Haruda_04-26-ORIGINAL.pdf)
 - Tábor, nám. F. Křižíka 496/10, 390 01 — otevřeno, Po–Ne 10–19
 - Jindřichův Hradec, Klášterská 79/II, 377 01 — otevřeno, Po–Ne 10–19
-- Dačice — "Připravujeme pobočku", BEZ přesné adresy/PSČ, bez fotky
+- Dačice, Palackého nám. 54, 380 01 — připravujeme (nájem Dvorec na Dačicích, Obchod 2)
+- Moravské Budějovice, náměstí ČSA 37, 676 02 — připravujeme
+- Havlíčkův Brod, Nádražní 90, 580 01 — připravujeme
+- Až se otevře: v components/Branches.tsx změnit status "soon" -> "open", přidat fotku do public/, upravit banner v app/layout.tsx a patičku
 
 BARVY (tailwind.config.ts)
 - forest #4A8B80, forest-dark #2D6B62, green-bg #B8DDD8, cream #F7F4EF, ink #1A1A18
 
-ZNÁMÉ NESROVNALOSTI / TODO
-- Footer: otevírací doba 10:00–20:00, ale pobočky mají 10:00–19:00 -> sjednotit
-- Footer: chybí Dačice v seznamu poboček
-- FAQ "Kde vás najdu?" říká "adresy na vyžádání" — zastaralé, adresy jsou veřejně na webu
-- FAQ "Je kratom legální?" + blog "kratom-a-zakon-v-cr" tvrdí "není regulován" — v rozporu
-  se sekcí Co je kratom (PML od 12.11.2025, vyhl. 448/2025) -> aktualizovat na PML režim
-- Blog: překlepy "kratom u" (mezera) v titulcích a popisech
-- sitemap.xml: chybí /blog, /blog/*, /obchodni-podminky
-- Dačice: doplnit adresu/PSČ/fotku až bude známa
+HOTOVO 10.9.2026
+- 5 poboček dle povolení, hodiny sjednoceny 10–19, banner + patička, FAQ a blog přepsány na PML režim,
+  překlepy "kratom u", sitemap + robots na www.krakram.com
+
+TODO
+- Fotky nových poboček (Dačice, Mor. Budějovice, Havl. Brod) až budou
 - CookieConsent ukládá volbu, ale nic reálně nezapíná (žádná analytika nasazena)
 - krakram.cz: buď přesměrovat na .com, nebo nechat být
 
