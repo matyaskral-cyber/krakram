@@ -22,7 +22,7 @@ export default function ObchodniPodminky() {
         <h2 className="text-xl font-bold mb-3">1. Provozovatel a kontakt</h2>
         <p className="text-ink-soft leading-relaxed">
           <strong>KSH Partners s.r.o.</strong><br />
-          IČO: 19985681<br />
+          IČO: 23990368<br />
           Sídlo: Chudenická 1059/30, 102 00 Praha 10 – Hostivař<br />
           E-mail: <a href="mailto:info@ksh-partners.cz" className="underline text-forest">info@ksh-partners.cz</a><br />
           Telefon: <a href="tel:+420774982675" className="underline text-forest">+420 774 982 675</a>

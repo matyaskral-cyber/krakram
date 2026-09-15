@@ -56,7 +56,7 @@ export default function ZasadyCookies() {
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-3">Správce webu</h2>
         <p className="text-ink-soft leading-relaxed">
-          KH Partners s.r.o., IČO: 19985681<br />
+          KSH Partners s.r.o., IČO: 23990368<br />
           Chudenická 1059/30, 102 00 Praha 10 – Hostivař<br />
           E-mail: <a href="mailto:info@ksh-partners.cz" className="underline text-forest">info@ksh-partners.cz</a>
         </p>
