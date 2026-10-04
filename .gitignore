@@ -32,3 +32,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# interní poznámky — nepatří do veřejného repa
+_PROJEKT_*.txt
