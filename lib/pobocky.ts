@@ -57,7 +57,7 @@ export const branches: Pobocka[] = [
     hours: "Po–Ne: 11:00–19:00",
     status: "open",
     badge: null,
-    photo: null,
+    photo: "/pobocka-dacice.jpg",
     mapsLink:
       "https://maps.google.com/maps?q=Palackého+nám.+54,+380+01+Dačice",
   },
@@ -71,7 +71,7 @@ export const branches: Pobocka[] = [
     hours: "Po–Ne: 11:00–19:00",
     status: "open",
     badge: null,
-    photo: null,
+    photo: "/pobocka-mb.jpg",
     mapsLink:
       "https://maps.google.com/maps?q=náměstí+ČSA+37,+676+02+Moravské+Budějovice",
   },
@@ -85,7 +85,7 @@ export const branches: Pobocka[] = [
     hours: "Po–Ne: 11:00–19:00",
     status: "open",
     badge: null,
-    photo: null,
+    photo: "/pobocka-hb.jpg",
     mapsLink:
       "https://maps.google.com/maps?q=Nádražní+90,+580+01+Havlíčkův+Brod",
   },
