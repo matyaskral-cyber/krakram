@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     q: "Kde vás najdu?",
-    a: "Prodáváme výhradně osobně na kamenných pobočkách. Otevřeno máme v Táboře (nám. F. Křižíka 496/10, Po–So 11:00–19:00), v Jindřichově Hradci (Klášterská 79/II, Po–So 10:00–19:00, v neděli obě 13:00–19:00), v Dačicích (Palackého nám. 54), v Moravských Budějovicích (náměstí ČSA 37) a v Havlíčkově Brodě (Nádražní 90). Přesné adresy a mapu najdete v sekci Pobočky.",
+    a: "Prodáváme výhradně osobně na kamenných pobočkách. Otevřeno máme v Táboře (nám. F. Křižíka 496/10, Po–So 11:00–19:00), v Jindřichově Hradci (Klášterská 79/II, Po–So 10:00–19:00, v neděli obě 13:00–19:00), v Dačicích (Palackého nám. 54), v Moravských Budějovicích (náměstí ČSA 37) a v Havlíčkově Brodě (Nádražní 90) — tyto tři pobočky mají otevřeno denně 11:00–19:00. Přesné adresy a mapu najdete v sekci Pobočky.",
   },
   {
     q: "Jak jsou produkty testovány?",
