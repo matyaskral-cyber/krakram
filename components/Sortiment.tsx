@@ -79,11 +79,9 @@ function Karta({ p }: { p: Produkt }) {
   const [fotkaChybi, setFotkaChybi] = useState(false);
   return (
     <article
-      className={`rounded-2xl overflow-hidden border bg-white flex flex-col transition-shadow hover:shadow-md ${
-        p.skladem ? "border-border" : "border-border opacity-60"
-      }`}
+      className={`group flex flex-col ${p.skladem ? "" : "opacity-50"}`}
     >
-      <div className="relative aspect-square">
+      <div className="relative aspect-square transition-transform duration-300 group-hover:-translate-y-1">
         {p.obrazek && !fotkaChybi ? (
           <Image
             src={p.obrazek}
@@ -99,7 +97,7 @@ function Karta({ p }: { p: Produkt }) {
           </div>
         )}
       </div>
-      <div className="p-3 md:p-4 flex flex-col gap-2 grow">
+      <div className="px-1 pt-2 flex flex-col gap-2 grow">
         <h3 className="text-sm md:text-base font-semibold text-ink leading-snug">{nazev}</h3>
         <div className="mt-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 pt-1">
           <span className="text-ink-muted text-sm whitespace-nowrap">{p.gramaz ?? ""}</span>
