@@ -90,7 +90,7 @@ function Karta({ p }: { p: Produkt }) {
             alt={nazev}
             fill
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
-            className="object-contain p-4"
+            className="object-contain p-1"
             onError={() => setFotkaChybi(true)}
           />
         ) : (
