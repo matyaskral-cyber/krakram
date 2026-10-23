@@ -79,11 +79,11 @@ function Karta({ p }: { p: Produkt }) {
   const [fotkaChybi, setFotkaChybi] = useState(false);
   return (
     <article
-      className={`rounded-2xl overflow-hidden border bg-white/60 flex flex-col ${
-        p.skladem ? "border-border-green" : "border-border-green/60 opacity-60"
+      className={`rounded-2xl overflow-hidden border bg-white flex flex-col transition-shadow hover:shadow-md ${
+        p.skladem ? "border-border" : "border-border opacity-60"
       }`}
     >
-      <div className="relative aspect-square bg-green-bg/50">
+      <div className="relative aspect-square">
         {p.obrazek && !fotkaChybi ? (
           <Image
             src={p.obrazek}
