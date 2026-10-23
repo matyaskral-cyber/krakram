@@ -1,62 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
+import { branches } from "@/lib/pobocky";
 
-const branches = [
-  {
-    city: "Tábor",
-    address: "nám. F. Křižíka 496/10",
-    zip: "390 01 Tábor",
-    hours: "Po–So: 11:00–19:00 · Ne: 13:00–19:00",
-    status: "open",
-    badge: null,
-    photo: "/pobocka-tabor.jpg",
-    mapsLink:
-      "https://maps.google.com/maps?q=nám.+F.+Křižíka+496%2F10,+Tábor",
-  },
-  {
-    city: "Jindřichův Hradec",
-    address: "Klášterská 79/II",
-    zip: "377 01 Jindřichův Hradec",
-    hours: "Po–So: 10:00–19:00 · Ne: 13:00–19:00",
-    status: "open",
-    badge: null,
-    photo: "/pobocka-jh.jpg",
-    mapsLink:
-      "https://maps.google.com/maps?q=Klášterská+79,+377+01+Jindřichův+Hradec",
-  },
-  {
-    city: "Dačice",
-    address: "Palackého nám. 54",
-    zip: "380 01 Dačice",
-    hours: "Otevírací dobu upřesníme",
-    status: "soon",
-    badge: "Připravujeme pobočku",
-    photo: null,
-    mapsLink:
-      "https://maps.google.com/maps?q=Palackého+nám.+54,+380+01+Dačice",
-  },
-  {
-    city: "Moravské Budějovice",
-    address: "náměstí ČSA 37",
-    zip: "676 02 Moravské Budějovice",
-    hours: "Otevírací dobu upřesníme",
-    status: "soon",
-    badge: "Připravujeme pobočku",
-    photo: null,
-    mapsLink:
-      "https://maps.google.com/maps?q=náměstí+ČSA+37,+676+02+Moravské+Budějovice",
-  },
-  {
-    city: "Havlíčkův Brod",
-    address: "Nádražní 90",
-    zip: "580 01 Havlíčkův Brod",
-    hours: "Otevírací dobu upřesníme",
-    status: "soon",
-    badge: "Připravujeme pobočku",
-    photo: null,
-    mapsLink:
-      "https://maps.google.com/maps?q=Nádražní+90,+580+01+Havlíčkův+Brod",
-  },
-];
 
 export default function Branches() {
   return (
@@ -110,7 +55,7 @@ export default function Branches() {
                     <svg className="w-10 h-10 opacity-25" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                     </svg>
-                    <span className="text-sm opacity-40 font-medium">Připravujeme pobočku</span>
+                    <span className="text-sm opacity-40 font-medium">Fotku pobočky brzy doplníme</span>
                   </div>
                 )}
               </div>
@@ -152,12 +97,20 @@ export default function Branches() {
                   {b.address}, {b.zip}
                 </div>
 
+                {/* Sortiment pobočky */}
+                <Link
+                  href={`/sortiment/${b.slug}`}
+                  className="mt-2 inline-flex items-center justify-center gap-2 bg-forest text-cream font-semibold text-sm px-6 py-3 rounded-full hover:bg-forest-light transition-colors"
+                >
+                  Co máme skladem
+                </Link>
+
                 {/* Navigate button */}
                 <a
                   href={b.mapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center justify-center gap-2 border border-forest text-forest font-semibold text-sm px-6 py-3 rounded-full hover:bg-forest hover:text-cream transition-colors"
+                  className="inline-flex items-center justify-center gap-2 border border-forest text-forest font-semibold text-sm px-6 py-3 rounded-full hover:bg-forest hover:text-cream transition-colors"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />

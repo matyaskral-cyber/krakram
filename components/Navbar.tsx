@@ -7,6 +7,7 @@ const links = [
   { label: "O nás", href: "/#o-nas" },
   { label: "Co je kratom?", href: "/#co-je-kratom" },
   { label: "Pobočky", href: "/#pobocky" },
+  { label: "Sortiment", href: "/sortiment" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "/#faq" },
   { label: "Kontakt", href: "/#kontakt" },

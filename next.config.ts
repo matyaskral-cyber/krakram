@@ -19,7 +19,21 @@ const securityHeaders = [
   },
 ];
 
+const isDev = process.env.NODE_ENV === "development";
+
 const nextConfig: NextConfig = {
+  // Fotky produktů z PML (veřejný sklad). Přes optimalizaci Vercelu, takže
+  // PML vidí jen pár dotazů a ne každého návštěvníka.
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "pml-system.cz", pathname: "/verejne/v1/obrazek/**" },
+      // lokální PML při vývoji
+      ...(isDev
+        ? [{ protocol: "http" as const, hostname: "127.0.0.1", pathname: "/verejne/v1/obrazek/**" }]
+        : []),
+    ],
+    dangerouslyAllowLocalIP: isDev,
+  },
   async headers() {
     return [
       {
