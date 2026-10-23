@@ -24,7 +24,7 @@ export type Sklad = {
 export const OBNOVA_SEKUND = 60;
 
 export async function nactiSklad(pobocka: Pobocka): Promise<Sklad | null> {
-  const url = process.env[pobocka.skladEnv];
+  const url = process.env[pobocka.skladEnv] || pobocka.sklad;
   if (!url) return null;
   try {
     const res = await fetch(url, { next: { revalidate: OBNOVA_SEKUND } });

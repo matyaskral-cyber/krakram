@@ -1,10 +1,13 @@
 // Pobočky KraKrám — jediné místo s jejich údaji (úvodní stránka i sortiment).
-// skladEnv = název proměnné prostředí s adresou veřejného skladu z PML
-// (Web prodejny → Adresa pro web). Bez ní stránka sortimentu ukáže „připravujeme“.
+// sklad = adresa veřejného skladu pobočky v PML (Admin → Web prodejny → Adresa
+// pro web). Klíč v ní jen zpřístupňuje skladem ano/ne, které je na webu stejně
+// vidět; po přegenerování v PML ho stačí přepsat tady nebo přebít proměnnou
+// prostředí `skladEnv` ve Vercelu.
 
 export type Pobocka = {
   slug: string;
   skladEnv: string;
+  sklad: string;
   city: string;
   address: string;
   zip: string;
@@ -18,6 +21,7 @@ export type Pobocka = {
 export const branches: Pobocka[] = [
   {
     slug: "tabor",
+    sklad: "https://pml-system.cz/verejne/v1/sklad/tgAZvKDAll3TMauAACwMzDxRAgKVSa59",
     skladEnv: "PML_SKLAD_TABOR",
     city: "Tábor",
     address: "nám. F. Křižíka 496/10",
@@ -31,6 +35,7 @@ export const branches: Pobocka[] = [
   },
   {
     slug: "jindrichuv-hradec",
+    sklad: "https://pml-system.cz/verejne/v1/sklad/jjgIrXwOVNI6lasB2aV8MPXpfDliaSNL",
     skladEnv: "PML_SKLAD_JH",
     city: "Jindřichův Hradec",
     address: "Klášterská 79/II",
@@ -44,6 +49,7 @@ export const branches: Pobocka[] = [
   },
   {
     slug: "dacice",
+    sklad: "https://pml-system.cz/verejne/v1/sklad/Z2mFKk8Caws0YN6lfcYpLttoefzb0-C0",
     skladEnv: "PML_SKLAD_DACICE",
     city: "Dačice",
     address: "Palackého nám. 54",
@@ -57,6 +63,7 @@ export const branches: Pobocka[] = [
   },
   {
     slug: "moravske-budejovice",
+    sklad: "https://pml-system.cz/verejne/v1/sklad/ZYg3xqdJIaInoqodDWAWY-9cN8IckuZT",
     skladEnv: "PML_SKLAD_MB",
     city: "Moravské Budějovice",
     address: "náměstí ČSA 37",
@@ -70,6 +77,7 @@ export const branches: Pobocka[] = [
   },
   {
     slug: "havlickuv-brod",
+    sklad: "https://pml-system.cz/verejne/v1/sklad/txlOntynmV0-AlF5u5aK8oYVeHWPQhq7",
     skladEnv: "PML_SKLAD_HB",
     city: "Havlíčkův Brod",
     address: "Nádražní 90",
