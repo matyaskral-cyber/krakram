@@ -67,7 +67,6 @@ export default function Footer() {
                 <p className="text-cream/70 font-semibold mb-2">Pobočky</p>
                 <p>nám. F. Křižíka 496/10, Tábor</p>
                 <p>Klášterská 79/II, Jindřichův Hradec</p>
-                <p className="text-cream/70 font-semibold mt-3 mb-2">Připravujeme</p>
                 <p>Palackého nám. 54, Dačice</p>
                 <p>náměstí ČSA 37, Moravské Budějovice</p>
                 <p>Nádražní 90, Havlíčkův Brod</p>
@@ -82,6 +81,7 @@ export default function Footer() {
                 <p>Tábor: Po–So 11:00–19:00</p>
                 <p>J. Hradec: Po–So 10:00–19:00</p>
                 <p>Neděle: 13:00–19:00</p>
+                <p className="mt-2">Dačice, M. Budějovice, H. Brod: doplníme</p>
               </div>
             </div>
           </div>

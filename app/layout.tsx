@@ -36,9 +36,9 @@ export default function RootLayout({
       <body className={`${outfit.variable} antialiased`}>
         {/* Banner — nové pobočky */}
         <div className="bg-forest text-cream text-center text-sm font-semibold py-2.5 px-4">
-          🎉 Připravujeme nové pobočky v Dačicích, Moravských Budějovicích a Havlíčkově Brodě!&nbsp;
+          🎉 Nově otevřeno v Dačicích, Moravských Budějovicích a Havlíčkově Brodě!&nbsp;
           <a href="#pobocky" className="underline underline-offset-2 opacity-80 hover:opacity-100">
-            Zjistit více
+            Najít pobočku
           </a>
         </div>
         {children}
