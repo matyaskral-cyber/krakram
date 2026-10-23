@@ -17,8 +17,9 @@ export default function Sortiment({ produkty }: { produkty: Produkt[] }) {
   const viditelne = produkty.filter(
     (p) => (vybrana === VSE || p.kategorie === vybrana) && (!jenSkladem || p.skladem)
   );
+  const serazene = [...viditelne].sort((a, b) => Number(b.skladem) - Number(a.skladem));
   const skupiny = Array.from(
-    viditelne.reduce((m, p) => {
+    serazene.reduce((m, p) => {
       const klic = p.skupina ? `${p.kategorie} · ${p.skupina}` : p.kategorie;
       m.set(klic, [...(m.get(klic) ?? []), p]);
       return m;
@@ -79,9 +80,13 @@ function Karta({ p }: { p: Produkt }) {
   const [fotkaChybi, setFotkaChybi] = useState(false);
   return (
     <article
-      className={`group flex flex-col ${p.skladem ? "" : "opacity-50"}`}
+      className="group flex flex-col"
     >
-      <div className="relative aspect-square transition-transform duration-300 group-hover:-translate-y-1">
+      <div
+        className={`relative aspect-square transition-transform duration-300 group-hover:-translate-y-1 ${
+          p.skladem ? "" : "grayscale opacity-40"
+        }`}
+      >
         {p.obrazek && !fotkaChybi ? (
           <Image
             src={p.obrazek}
@@ -98,20 +103,25 @@ function Karta({ p }: { p: Produkt }) {
         )}
       </div>
       <div className="px-1 pt-2 flex flex-col gap-2 grow">
-        <h3 className="text-sm md:text-base font-semibold text-ink leading-snug">{nazev}</h3>
-        <div className="mt-auto flex flex-wrap items-center justify-between gap-x-2 gap-y-1.5 pt-1">
-          <span className="text-ink-muted text-sm whitespace-nowrap">{p.gramaz ?? ""}</span>
-          {p.skladem ? (
-            <span className="flex items-center gap-1.5 whitespace-nowrap text-xs font-semibold text-forest bg-forest/10 px-2.5 py-1 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-forest" />
-              Skladem
-            </span>
-          ) : (
-            <span className="whitespace-nowrap text-xs font-semibold text-ink-muted bg-border-green/60 px-2.5 py-1 rounded-full">
-              Není skladem
-            </span>
-          )}
-        </div>
+        <h3 className={`text-sm md:text-base font-semibold leading-snug ${p.skladem ? "text-ink" : "text-ink-muted"}`}>
+          {nazev}
+        </h3>
+        <span className="text-ink-muted text-sm">{p.gramaz ?? ""}</span>
+        {p.skladem ? (
+          <span className="mt-auto inline-flex items-center justify-center gap-1.5 text-sm font-bold text-cream bg-forest px-3 py-2 rounded-full">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            Skladem
+          </span>
+        ) : (
+          <span className="mt-auto inline-flex items-center justify-center gap-1.5 text-sm font-bold text-ink-muted border-2 border-dashed border-ink-muted/40 px-3 py-1.5 rounded-full">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={3} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" />
+            </svg>
+            Vyprodáno
+          </span>
+        )}
       </div>
     </article>
   );
