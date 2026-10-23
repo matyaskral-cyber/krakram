@@ -26,13 +26,11 @@ export const OBNOVA_SEKUND = 60;
 export async function nactiSklad(pobocka: Pobocka): Promise<Sklad | null> {
   const url = process.env[pobocka.skladEnv] || pobocka.sklad;
   if (!url) return null;
-  try {
-    const res = await fetch(url, { next: { revalidate: OBNOVA_SEKUND } });
-    if (!res.ok) return null;
-    return (await res.json()) as Sklad;
-  } catch {
-    return null;
-  }
+  // Chyba se schválně nepolyká: když PML neodpoví (výpadek, limit dotazů),
+  // Next při obnově stránky ponechá poslední dobrou verzi místo „připravujeme“.
+  const res = await fetch(url, { next: { revalidate: OBNOVA_SEKUND } });
+  if (!res.ok) throw new Error(`PML sklad ${pobocka.slug}: HTTP ${res.status}`);
+  return (await res.json()) as Sklad;
 }
 
 // „25G Bílý kratom prášek MAENG DA“ → „Bílý kratom prášek MAENG DA“;
