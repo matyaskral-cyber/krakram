@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Oznameni from "@/components/Oznameni";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
@@ -54,6 +55,7 @@ export default async function SortimentPobocky({ params }: Props) {
             {b.address}, {b.zip}
           </p>
           <p className="text-ink-muted mb-10">{b.hours}</p>
+          {b.oznameni && <Oznameni text={b.oznameni.text} platiDo={b.oznameni.do} className="-mt-6 mb-10" />}
 
           {sklad ? (
             <>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { branches } from "@/lib/pobocky";
+import Oznameni from "@/components/Oznameni";
 
 
 export default function Branches() {
@@ -79,6 +80,8 @@ export default function Branches() {
                     </span>
                   )}
                 </div>
+
+                {b.oznameni && <Oznameni text={b.oznameni.text} platiDo={b.oznameni.do} />}
 
                 {/* Hours */}
                 <div className="flex items-center gap-3 text-sm text-ink-soft">
