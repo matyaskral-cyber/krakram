@@ -16,6 +16,9 @@ export type Pobocka = {
   badge: string | null;
   photo: string | null;
   mapsLink: string;
+  // Dočasné upozornění (např. mimořádně zavřeno). Ukazuje se do konce dne `do`
+  // (český čas), pak samo zmizí.
+  oznameni?: { text: string; do: string };
 };
 
 export const branches: Pobocka[] = [
@@ -26,7 +29,7 @@ export const branches: Pobocka[] = [
     city: "Tábor",
     address: "nám. F. Křižíka 496/10",
     zip: "390 01 Tábor",
-    hours: "Po–So: 11:00–19:00 · Ne: 13:00–19:00",
+    hours: "Po–Ne: 11:00–19:00",
     status: "open",
     badge: null,
     photo: "/pobocka-tabor.jpg",
@@ -57,6 +60,10 @@ export const branches: Pobocka[] = [
     hours: "Po–Ne: 11:00–19:00",
     status: "open",
     badge: null,
+    oznameni: {
+      text: "Tento víkend (24.–25. 10.) je pobočka z technických důvodů zavřená. Omlouváme se.",
+      do: "2026-10-25",
+    },
     photo: "/pobocka-dacice.jpg",
     mapsLink:
       "https://maps.google.com/maps?q=Palackého+nám.+54,+380+01+Dačice",
