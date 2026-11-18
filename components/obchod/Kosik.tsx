@@ -67,9 +67,13 @@ export function KosikProvider({ children }: { children: React.ReactNode }) {
       zavri: () => setOtevreno(false),
       pridej: (slug, varianta, ks = 1) => {
         setPolozky((stare) => {
-          const je = stare.find((p) => p.slug === slug && p.varianta === varianta);
+          const je = stare.find(
+            (p) => p.slug === slug && p.varianta === varianta,
+          );
           return je
-            ? stare.map((p) => (p === je ? { ...p, ks: Math.min(p.ks + ks, 20) } : p))
+            ? stare.map((p) =>
+                p === je ? { ...p, ks: Math.min(p.ks + ks, 20) } : p,
+              )
             : [...stare, { slug, varianta, ks }];
         });
         setOtevreno(true);
@@ -79,7 +83,9 @@ export function KosikProvider({ children }: { children: React.ReactNode }) {
           ks <= 0
             ? stare.filter((p) => !(p.slug === slug && p.varianta === varianta))
             : stare.map((p) =>
-                p.slug === slug && p.varianta === varianta ? { ...p, ks: Math.min(ks, 20) } : p,
+                p.slug === slug && p.varianta === varianta
+                  ? { ...p, ks: Math.min(ks, 20) }
+                  : p,
               ),
         ),
       vyprazdni: () => setPolozky([]),
@@ -114,7 +120,9 @@ export function Pocitadlo({
       >
         −
       </button>
-      <span className={`${maly ? "w-6 text-sm" : "w-8"} text-center font-semibold tabular-nums`}>
+      <span
+        className={`${maly ? "w-6 text-sm" : "w-8"} text-center font-semibold tabular-nums`}
+      >
         {ks}
       </span>
       <button
@@ -164,7 +172,10 @@ function Supl() {
       >
         <div className="flex items-center justify-between px-6 pb-4 pt-6">
           <h2 className="text-2xl font-extrabold tracking-tight">
-            Košík <span className="text-ink-muted font-medium tabular-nums">({k.pocet})</span>
+            Košík{" "}
+            <span className="text-ink-muted font-medium tabular-nums">
+              ({k.pocet})
+            </span>
           </h2>
           <button
             type="button"
@@ -181,7 +192,8 @@ function Supl() {
             <p className="mb-2 text-sm font-medium text-ink-soft">
               {zbyva > 0 ? (
                 <>
-                  Do dopravy zdarma zbývá <strong className="tabular-nums">{kc(zbyva)}</strong>
+                  Do dopravy zdarma zbývá{" "}
+                  <strong className="tabular-nums">{kc(zbyva)}</strong>
                 </>
               ) : (
                 "Dopravu máte zdarma."
@@ -190,7 +202,9 @@ function Supl() {
             <div className="h-1.5 overflow-hidden rounded-full bg-ink/10">
               <div
                 className="h-full rounded-full bg-forest transition-all duration-500"
-                style={{ width: `${Math.min(100, (k.soucet / DOPRAVA_ZDARMA_OD) * 100)}%` }}
+                style={{
+                  width: `${Math.min(100, (k.soucet / DOPRAVA_ZDARMA_OD) * 100)}%`,
+                }}
               />
             </div>
           </div>
@@ -200,7 +214,9 @@ function Supl() {
           {r.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center pb-20 text-center">
               <p className="text-xl font-bold">Zatím tu nic není</p>
-              <p className="mt-2 text-base text-ink-muted">Vyberte si v sortimentu.</p>
+              <p className="mt-2 text-base text-ink-muted">
+                Vyberte si v sortimentu.
+              </p>
               <Link
                 href="/obchod/sortiment"
                 onClick={k.zavri}
@@ -215,10 +231,13 @@ function Supl() {
                 <li key={x.slug + x.varianta} className="flex gap-4 py-4">
                   <div
                     className="relative h-20 w-20 shrink-0 rounded-2xl"
-                    style={{ background: `color-mix(in srgb, ${x.produkt.barva} 22%, #F7F4EF)` }}
+                    style={{
+                      background: `color-mix(in srgb, ${x.produkt.barva} 22%, #F7F4EF)`,
+                    }}
                   >
                     {x.produkt.foto && (
                       <Image
+                        unoptimized
                         src={x.produkt.foto}
                         alt=""
                         fill
@@ -228,12 +247,18 @@ function Supl() {
                     )}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-base font-semibold leading-snug">{x.produkt.nazev}</p>
+                    <p className="text-base font-semibold leading-snug">
+                      {x.produkt.nazev}
+                    </p>
                     <p className="text-sm text-ink-muted">
                       {x.produkt.znacka} · {x.v.nazev}
                     </p>
                     <div className="mt-2 flex items-center justify-between">
-                      <Pocitadlo maly ks={x.ks} zmen={(n) => k.nastav(x.slug, x.varianta, n)} />
+                      <Pocitadlo
+                        maly
+                        ks={x.ks}
+                        zmen={(n) => k.nastav(x.slug, x.varianta, n)}
+                      />
                       <span className="text-base font-bold tabular-nums">
                         {kc(x.ks * x.v.cena)}
                       </span>
@@ -249,10 +274,13 @@ function Supl() {
           <div className="border-t border-ink/10 px-6 pb-6 pt-4">
             <div className="flex items-baseline justify-between">
               <span className="text-base text-ink-soft">Mezisoučet</span>
-              <span className="text-2xl font-extrabold tabular-nums">{kc(k.soucet)}</span>
+              <span className="text-2xl font-extrabold tabular-nums">
+                {kc(k.soucet)}
+              </span>
             </div>
             <p className="mt-1 text-sm text-ink-muted">
-              Dopravu vyberete v dalším kroku. Zásilku předáme jen osobě starší 18 let.
+              Dopravu vyberete v dalším kroku. Zásilku předáme jen osobě starší
+              18 let.
             </p>
             <Link
               href="/obchod/pokladna"

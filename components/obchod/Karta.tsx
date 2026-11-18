@@ -6,7 +6,13 @@ import { cenaOd, kc, type Produkt } from "@/lib/obchod/produkty";
 import { useKosik } from "./Kosik";
 
 // Dlaždice bez fotky — typografická „etiketa“.
-export function Etiketa({ produkt, velka }: { produkt: Produkt; velka?: boolean }) {
+export function Etiketa({
+  produkt,
+  velka,
+}: {
+  produkt: Produkt;
+  velka?: boolean;
+}) {
   return (
     <div className="absolute inset-0 grid place-items-center">
       <div
@@ -23,7 +29,9 @@ export function Etiketa({ produkt, velka }: { produkt: Produkt; velka?: boolean 
               WebkitMask: "url(/obchod/logo.svg) center/contain no-repeat",
             }}
           />
-          <p className={`mt-3 font-extrabold uppercase leading-none ${velka ? "text-3xl" : "text-xl"}`}>
+          <p
+            className={`mt-3 font-extrabold uppercase leading-none ${velka ? "text-3xl" : "text-xl"}`}
+          >
             {produkt.nazev}
           </p>
           <p className="mt-2 text-xs font-semibold uppercase tracking-widest text-lime">
@@ -35,12 +43,21 @@ export function Etiketa({ produkt, velka }: { produkt: Produkt; velka?: boolean 
   );
 }
 
-export default function Karta({ produkt, priorita }: { produkt: Produkt; priorita?: boolean }) {
+export default function Karta({
+  produkt,
+  priorita,
+}: {
+  produkt: Produkt;
+  priorita?: boolean;
+}) {
   const { pridej } = useKosik();
   const vice = produkt.varianty.length > 1;
 
   return (
-    <article className="group relative" style={{ "--c": produkt.barva } as React.CSSProperties}>
+    <article
+      className="group relative"
+      style={{ "--c": produkt.barva } as React.CSSProperties}
+    >
       <Link href={`/obchod/produkt/${produkt.slug}`} className="block">
         <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-[color-mix(in_srgb,var(--c)_20%,#F7F4EF)] transition-colors duration-500 group-hover:bg-[color-mix(in_srgb,var(--c)_82%,#F7F4EF)]">
           {produkt.stitek && (
@@ -50,6 +67,7 @@ export default function Karta({ produkt, priorita }: { produkt: Produkt; priorit
           )}
           {produkt.foto ? (
             <Image
+              unoptimized
               src={produkt.foto}
               alt={`${produkt.nazev} – ${produkt.znacka}`}
               fill
@@ -78,7 +96,9 @@ export default function Karta({ produkt, priorita }: { produkt: Produkt; priorit
             </p>
           </div>
           <p className="shrink-0 text-base font-extrabold tabular-nums sm:pt-4 md:text-lg">
-            {vice && <span className="text-sm font-medium text-ink-muted">od </span>}
+            {vice && (
+              <span className="text-sm font-medium text-ink-muted">od </span>
+            )}
             {kc(cenaOd(produkt))}
           </p>
         </div>

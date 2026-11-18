@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { cz } from "@/lib/obchod/typo";
 import Karta from "@/components/obchod/Karta";
-import { cenaOd, kategorie, najdiKategorii, produkty } from "@/lib/obchod/produkty";
+import {
+  cenaOd,
+  kategorie,
+  najdiKategorii,
+  produkty,
+} from "@/lib/obchod/produkty";
 
 export const metadata: Metadata = { title: "Sortiment" };
 
@@ -49,17 +54,26 @@ export default async function Sortiment({
           {vybrana ? vybrana.nazev : "Celý sortiment"}
         </h1>
         <p className="vyrovnat max-w-sm pb-2 text-lg leading-snug text-ink-soft">
-          {cz(vybrana ? vybrana.popis : "Všechno, co se smí posílat. Pro kratom se stavte na prodejně.")}
+          {cz(
+            vybrana
+              ? vybrana.popis
+              : "Všechno, co se smí posílat. Pro kratom se stavte na prodejně.",
+          )}
         </p>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-y border-ink/10 py-4">
         <div className="-mx-4 flex gap-2 overflow-x-auto px-4 [scrollbar-width:none] md:mx-0 md:flex-wrap md:px-0">
           <Link href={odkaz(undefined, r)} className={stitek(!vybrana)}>
-            Vše <span className="font-medium opacity-60">{produkty.length}</span>
+            Vše{" "}
+            <span className="font-medium opacity-60">{produkty.length}</span>
           </Link>
           {kategorie.map((kat) => (
-            <Link key={kat.id} href={odkaz(kat.id, r)} className={stitek(vybrana?.id === kat.id)}>
+            <Link
+              key={kat.id}
+              href={odkaz(kat.id, r)}
+              className={stitek(vybrana?.id === kat.id)}
+            >
               {kat.kratce}{" "}
               <span className="font-medium opacity-60">
                 {produkty.filter((p) => p.kategorie === kat.id).length}
@@ -74,7 +88,9 @@ export default async function Sortiment({
               key={x.id}
               href={odkaz(vybrana?.id, x.id)}
               className={`rounded-full px-2.5 py-1.5 font-semibold sm:px-3 ${
-                (r ?? "") === x.id ? "bg-lime text-pine" : "text-ink-soft hover:bg-ink/5"
+                (r ?? "") === x.id
+                  ? "bg-lime text-pine"
+                  : "text-ink-soft hover:bg-ink/5"
               }`}
             >
               {x.nazev}

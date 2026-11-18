@@ -13,7 +13,11 @@ export const metadata: Metadata = {
   robots: { index: false, follow: false },
 };
 
-export default function ObchodLayout({ children }: { children: React.ReactNode }) {
+export default function ObchodLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <div className="obchod font-sans">
       <KosikProvider>

@@ -20,7 +20,9 @@ export default function Nakup({ produkt }: { produkt: Produkt }) {
 
       {produkt.varianty.length > 1 && (
         <div className="mt-6">
-          <p className="text-sm font-bold uppercase tracking-widest text-ink-muted">Balení</p>
+          <p className="text-sm font-bold uppercase tracking-widest text-ink-muted">
+            Balení
+          </p>
           <div className="mt-2 flex gap-2">
             {produkt.varianty.map((x) => (
               <button
@@ -35,7 +37,9 @@ export default function Nakup({ produkt }: { produkt: Produkt }) {
                 }`}
               >
                 <span className="block text-lg font-extrabold">{x.nazev}</span>
-                <span className="block text-sm tabular-nums opacity-70">{kc(x.cena)}</span>
+                <span className="block text-sm tabular-nums opacity-70">
+                  {kc(x.cena)}
+                </span>
               </button>
             ))}
           </div>

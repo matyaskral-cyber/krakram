@@ -9,10 +9,15 @@ import { useRef } from "react";
 
 function Titulek({ className }: { className: string }) {
   return (
-    <h1 className={`font-extrabold uppercase tracking-tight text-cream ${className}`}>
+    <h1
+      className={`font-extrabold uppercase tracking-tight text-cream ${className}`}
+    >
       {["Krám až", "ke dveřím."].map((radek, x) => (
         // Maska pro vyjetí řádku; nahoře rezerva, aby se neuřízly háčky a čárky.
-        <span key={radek} className="-mt-[0.18em] block overflow-hidden pb-[0.06em] pt-[0.3em]">
+        <span
+          key={radek}
+          className="-mt-[0.18em] block overflow-hidden pb-[0.06em] pt-[0.3em]"
+        >
           <span
             className="block animate-vyjed motion-reduce:animate-none"
             style={{ animationDelay: `${150 + x * 130}ms` }}
@@ -37,7 +42,10 @@ function Pecet({ className }: { className: string }) {
         aria-hidden
       >
         <defs>
-          <path id="pecet-kruh" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0" />
+          <path
+            id="pecet-kruh"
+            d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"
+          />
         </defs>
         <circle cx="100" cy="100" r="99" fill="#B4D777" />
         <text
@@ -47,7 +55,9 @@ function Pecet({ className }: { className: string }) {
           letterSpacing="3.6"
           style={{ textTransform: "uppercase" }}
         >
-          <textPath href="#pecet-kruh">Jen pro dospělé ✦ Diskrétní balení ✦ Skladem ✦</textPath>
+          <textPath href="#pecet-kruh">
+            Jen pro dospělé ✦ Diskrétní balení ✦ Skladem ✦
+          </textPath>
         </text>
       </svg>
       <span className="absolute inset-0 grid place-items-center text-2xl font-extrabold text-pine">
@@ -61,7 +71,9 @@ function Tlacitka({ naVysku }: { naVysku?: boolean }) {
   return (
     <div
       className={`flex animate-zjev gap-3 [animation-delay:800ms] motion-reduce:animate-none ${
-        naVysku ? "[&>a]:flex-1 [&>a]:px-3 [&>a]:py-3.5 [&>a]:text-base" : "flex-wrap"
+        naVysku
+          ? "[&>a]:flex-1 [&>a]:px-3 [&>a]:py-3.5 [&>a]:text-base"
+          : "flex-wrap"
       }`}
     >
       <Link
@@ -89,8 +101,14 @@ function Pocitac() {
   const pohyb = (e: React.PointerEvent) => {
     if (e.pointerType !== "mouse" || !panel.current) return;
     const r = panel.current.getBoundingClientRect();
-    panel.current.style.setProperty("--mx", String((e.clientX - r.left) / r.width - 0.5));
-    panel.current.style.setProperty("--my", String((e.clientY - r.top) / r.height - 0.5));
+    panel.current.style.setProperty(
+      "--mx",
+      String((e.clientX - r.left) / r.width - 0.5),
+    );
+    panel.current.style.setProperty(
+      "--my",
+      String((e.clientY - r.top) / r.height - 0.5),
+    );
   };
   const klid = () => {
     panel.current?.style.setProperty("--mx", "0");
@@ -108,6 +126,7 @@ function Pocitac() {
       <div className="absolute inset-0 animate-priblizit motion-reduce:animate-none">
         <div className="absolute -inset-6 transition-transform duration-700 ease-out [transform:translate3d(calc(var(--mx)*-28px),calc(var(--my)*-20px),0)] motion-reduce:transform-none">
           <Image
+            unoptimized
             src="/obchod/hero.webp"
             alt=""
             fill
@@ -127,7 +146,8 @@ function Pocitac() {
         </p>
         <Titulek className="mt-2 text-7xl leading-[1.04] xl:text-[6.2rem]" />
         <p className="vyrovnat mt-5 max-w-[26rem] animate-zjev text-lg leading-relaxed text-cream/80 [animation-delay:650ms] motion-reduce:animate-none">
-          Co máme na pultu, pošleme i&nbsp;poštou. CBD květy, Canapuff, kava a&nbsp;kanna.
+          Co máme na pultu, pošleme i&nbsp;poštou. CBD květy, Canapuff, kava
+          a&nbsp;kanna.
         </p>
         <div className="mt-8">
           <Tlacitka />
@@ -141,6 +161,7 @@ function Telefon() {
   return (
     <div className="relative mx-auto aspect-[358/700] max-w-xl sm:aspect-[4/5] overflow-hidden rounded-[2rem] bg-[var(--pozadi-mobil)] lg:hidden">
       <Image
+        unoptimized
         src="/obchod/hero-mobil.webp"
         alt=""
         fill
@@ -173,7 +194,12 @@ export default function UvodFoto() {
     <section
       className="mx-auto max-w-[86rem] px-4 pt-4 md:px-8 md:pt-6"
       // Barva pozadí fotek, aby okraje panelu splynuly.
-      style={{ "--pozadi": "#11514e", "--pozadi-mobil": "#0a4948" } as React.CSSProperties}
+      style={
+        {
+          "--pozadi": "#11514e",
+          "--pozadi-mobil": "#0a4948",
+        } as React.CSSProperties
+      }
     >
       <Pocitac />
       <Telefon />

@@ -14,7 +14,10 @@ const VYSTAVA: { slug: string; stitek: string; vyska: number }[] = [
   { slug: "vape-gorilla-kush", stitek: "Vapy", vyska: 1.08 },
   { slug: "kava-kava-borongoru", stitek: "Kava kava", vyska: 1 },
 ];
-const POLOZKY = VYSTAVA.map((v) => ({ ...v, produkt: najdiProdukt(v.slug) as Produkt }));
+const POLOZKY = VYSTAVA.map((v) => ({
+  ...v,
+  produkt: najdiProdukt(v.slug) as Produkt,
+}));
 const INTERVAL = 5200;
 
 function useVystava() {
@@ -58,6 +61,7 @@ function Produkty({ i, velikost }: { i: number; velikost: string }) {
         >
           <div className="absolute inset-0 animate-vznaset motion-reduce:animate-none">
             <Image
+              unoptimized
               src={p.produkt.foto!}
               alt={x === i ? `${p.produkt.nazev} – ${p.produkt.znacka}` : ""}
               fill
@@ -75,10 +79,15 @@ function Produkty({ i, velikost }: { i: number; velikost: string }) {
 
 function Titulek({ className }: { className: string }) {
   return (
-    <h1 className={`font-extrabold uppercase tracking-tight text-cream ${className}`}>
+    <h1
+      className={`font-extrabold uppercase tracking-tight text-cream ${className}`}
+    >
       {["Z\u00a0pultu", "rovnou", "k\u00a0vám."].map((radek, x) => (
         // Maska pro vyjetí řádku; nahoře rezerva, aby se neuřízly háčky a čárky.
-        <span key={radek} className="-mt-[0.18em] block overflow-hidden pb-[0.06em] pt-[0.3em]">
+        <span
+          key={radek}
+          className="-mt-[0.18em] block overflow-hidden pb-[0.06em] pt-[0.3em]"
+        >
           <span
             className="block animate-vyjed motion-reduce:animate-none"
             style={{ animationDelay: `${150 + x * 120}ms` }}
@@ -159,9 +168,12 @@ function Prepinac({
             className={`group relative shrink-0 overflow-hidden rounded-2xl transition-all duration-300 ${
               maly ? "h-12 w-12" : "h-16 w-16"
             } ${aktivni ? "scale-100 ring-2 ring-lime" : "scale-90 opacity-70 hover:scale-100 hover:opacity-100"}`}
-            style={{ background: `color-mix(in srgb, ${p.produkt.barva} 70%, #F7F4EF)` }}
+            style={{
+              background: `color-mix(in srgb, ${p.produkt.barva} 70%, #F7F4EF)`,
+            }}
           >
             <Image
+              unoptimized
               src={p.produkt.foto!}
               alt=""
               fill
@@ -228,6 +240,7 @@ function UvodPocitac({ v }: { v: ReturnType<typeof useVystava> }) {
       <div className="absolute inset-0 animate-priblizit motion-reduce:animate-none">
         <div className="absolute -inset-8 transition-transform duration-700 ease-out [transform:translate3d(calc(var(--mx)*-24px),calc(var(--my)*-16px),0)] motion-reduce:transform-none">
           <Image
+            unoptimized
             src="/obchod/scena.webp"
             alt=""
             fill
@@ -279,7 +292,10 @@ function UvodPocitac({ v }: { v: ReturnType<typeof useVystava> }) {
         className="group absolute right-8 top-8 z-10 animate-zjev rounded-full bg-cream/10 px-5 py-2.5 text-base font-bold text-cream ring-1 ring-cream/25 backdrop-blur-md transition-colors [animation-delay:900ms] hover:bg-cream hover:text-pine motion-reduce:animate-none"
       >
         Celý sortiment{" "}
-        <span aria-hidden className="inline-block transition-transform group-hover:translate-x-1">
+        <span
+          aria-hidden
+          className="inline-block transition-transform group-hover:translate-x-1"
+        >
           →
         </span>
       </Link>
@@ -291,7 +307,8 @@ function UvodPocitac({ v }: { v: ReturnType<typeof useVystava> }) {
         </p>
         <Titulek className="mt-2 text-7xl leading-[1.04] xl:text-[5.4rem]" />
         <p className="vyrovnat mt-5 max-w-[27rem] animate-zjev text-lg leading-relaxed text-cream/80 [animation-delay:600ms] motion-reduce:animate-none">
-          Co máme na pultu, pošleme i&nbsp;poštou. Vyberte si, co chcete vidět zblízka.
+          Co máme na pultu, pošleme i&nbsp;poštou. Vyberte si, co chcete vidět
+          zblízka.
         </p>
 
         <div className="mt-8 max-w-[29rem] animate-zjev space-y-4 xl:max-w-[33rem] [animation-delay:780ms] motion-reduce:animate-none">
@@ -346,6 +363,7 @@ function UvodTelefon({ v }: { v: ReturnType<typeof useVystava> }) {
         className="relative -mt-6 aspect-[358/400] touch-pan-y"
       >
         <Image
+          unoptimized
           src="/obchod/scena-mobil.webp"
           alt=""
           fill

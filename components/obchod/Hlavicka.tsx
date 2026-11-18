@@ -51,7 +51,11 @@ export default function Hlavicka() {
   return (
     <header className="sticky top-0 z-50 border-b border-ink/5 bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex h-[4.5rem] max-w-[86rem] items-center gap-6 px-4 md:px-8">
-        <Link href="/obchod" className="flex items-center gap-3 text-forest-dark" aria-label="KraKrám – e-shop">
+        <Link
+          href="/obchod"
+          className="flex items-center gap-3 text-forest-dark"
+          aria-label="KraKrám – e-shop"
+        >
           <Logo className="h-12" />
           <span className="hidden rounded-full bg-pine px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-widest text-lime sm:block">
             e-shop

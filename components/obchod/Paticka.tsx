@@ -11,15 +11,21 @@ export default function Paticka() {
           <div>
             <Logo className="h-24 text-lime" />
             <p className="mt-6 max-w-xs text-base leading-relaxed text-cream/70">
-              Pět kamenných prodejen a{"\u00a0"}e-shop se{"\u00a0"}zbožím, které se smí posílat.
+              Pět kamenných prodejen a{"\u00a0"}e-shop se{"\u00a0"}zbožím, které
+              se smí posílat.
             </p>
           </div>
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-lime">Sortiment</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-lime">
+              Sortiment
+            </h3>
             <ul className="mt-4 space-y-2 text-base">
               {kategorie.map((k) => (
                 <li key={k.id}>
-                  <Link href={`/obchod/sortiment?k=${k.id}`} className="text-cream/80 hover:text-cream">
+                  <Link
+                    href={`/obchod/sortiment?k=${k.id}`}
+                    className="text-cream/80 hover:text-cream"
+                  >
                     {k.nazev}
                   </Link>
                 </li>
@@ -27,7 +33,9 @@ export default function Paticka() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-lime">Nákup</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-lime">
+              Nákup
+            </h3>
             <ul className="mt-4 space-y-2 text-base text-cream/80">
               <li>Doprava a platba</li>
               <li>Ověření věku</li>
@@ -40,7 +48,9 @@ export default function Paticka() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-widest text-lime">Prodejny</h3>
+            <h3 className="text-sm font-bold uppercase tracking-widest text-lime">
+              Prodejny
+            </h3>
             <ul className="mt-4 space-y-2 text-base text-cream/80">
               {branches.map((b) => (
                 <li key={b.slug}>{b.city}</li>
@@ -55,8 +65,9 @@ export default function Paticka() {
               18+
             </span>
             <p className="max-w-xl text-sm leading-relaxed text-cream/70">
-              Prodáváme jen dospělým. Věk potvrzujete v{"\u00a0"}pokladně a{"\u00a0"}dopravce ho
-              zkontroluje při předání. Kratom v{"\u00a0"}e-shopu není, ten je jen na prodejnách.
+              Prodáváme jen dospělým. Věk potvrzujete v{"\u00a0"}pokladně a
+              {"\u00a0"}dopravce ho zkontroluje při předání. Kratom v{"\u00a0"}
+              e-shopu není, ten je jen na prodejnách.
             </p>
           </div>
           <p className="text-sm text-cream/60">

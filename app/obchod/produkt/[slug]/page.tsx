@@ -48,6 +48,7 @@ export default async function Detail({ params }: Props) {
           </span>
           {p.foto ? (
             <Image
+              unoptimized
               src={p.foto}
               alt={`${p.nazev} – ${p.znacka}`}
               fill
@@ -70,15 +71,22 @@ export default async function Detail({ params }: Props) {
               Sortiment
             </Link>{" "}
             /{" "}
-            <Link href={`/obchod/sortiment?k=${kat.id}`} className="hover:underline">
+            <Link
+              href={`/obchod/sortiment?k=${kat.id}`}
+              className="hover:underline"
+            >
               {kat.nazev}
             </Link>
           </p>
           <h1 className="mt-4 text-5xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-7xl">
             {p.nazev}
           </h1>
-          <p className="mt-3 text-lg font-semibold text-ink-muted">{p.znacka}</p>
-          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">{cz(p.popis)}</p>
+          <p className="mt-3 text-lg font-semibold text-ink-muted">
+            {p.znacka}
+          </p>
+          <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
+            {cz(p.popis)}
+          </p>
 
           <div className="mt-8">
             <Nakup produkt={p} />
@@ -88,7 +96,9 @@ export default async function Detail({ params }: Props) {
             {JISTOTY.map(([a, b]) => (
               <li key={a} className="rounded-2xl bg-cream-dark px-4 py-3">
                 <span className="block text-base font-extrabold">{a}</span>
-                <span className="block text-sm leading-snug text-ink-muted">{b}</span>
+                <span className="block text-sm leading-snug text-ink-muted">
+                  {b}
+                </span>
               </li>
             ))}
           </ul>
@@ -97,7 +107,10 @@ export default async function Detail({ params }: Props) {
             <details open className="group border-b border-ink/10 py-5">
               <summary className="flex cursor-pointer list-none items-center justify-between text-xl font-bold [&::-webkit-details-marker]:hidden">
                 Parametry
-                <span aria-hidden className="text-2xl transition-transform group-open:rotate-45">
+                <span
+                  aria-hidden
+                  className="text-2xl transition-transform group-open:rotate-45"
+                >
                   +
                 </span>
               </summary>
@@ -113,13 +126,17 @@ export default async function Detail({ params }: Props) {
             <details className="group border-b border-ink/10 py-5">
               <summary className="flex cursor-pointer list-none items-center justify-between text-xl font-bold [&::-webkit-details-marker]:hidden">
                 Doprava a platba
-                <span aria-hidden className="text-2xl transition-transform group-open:rotate-45">
+                <span
+                  aria-hidden
+                  className="text-2xl transition-transform group-open:rotate-45"
+                >
                   +
                 </span>
               </summary>
               <p className="mt-3 text-base leading-relaxed text-ink-soft">
-                Výdejna, kurýr až ke dveřím, nebo vyzvednutí na prodejně. Zaplatíte kartou, převodem
-                nebo při převzetí. Věk se ověřuje vždy.
+                Výdejna, kurýr až ke dveřím, nebo vyzvednutí na prodejně.
+                Zaplatíte kartou, převodem nebo při převzetí. Věk se ověřuje
+                vždy.
               </p>
             </details>
           </div>

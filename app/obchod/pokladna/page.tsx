@@ -8,8 +8,18 @@ import { DOPRAVA_ZDARMA_OD, kc } from "@/lib/obchod/produkty";
 import { branches } from "@/lib/pobocky";
 
 const DOPRAVY = [
-  { id: "vydejna", nazev: "Výdejní místo", popis: "S ověřením věku při výdeji", cena: 79 },
-  { id: "kuryr", nazev: "Kurýr na adresu", popis: "Předá jen osobě starší 18 let", cena: 129 },
+  {
+    id: "vydejna",
+    nazev: "Výdejní místo",
+    popis: "S ověřením věku při výdeji",
+    cena: 79,
+  },
+  {
+    id: "kuryr",
+    nazev: "Kurýr na adresu",
+    popis: "Předá jen osobě starší 18 let",
+    cena: 129,
+  },
   { id: "odber", nazev: "Osobní odběr", popis: "Na prodejně KraKrám", cena: 0 },
 ];
 
@@ -41,7 +51,9 @@ function Volba({
       onClick={vyber}
       aria-pressed={aktivni}
       className={`flex w-full items-center gap-4 rounded-2xl border-2 px-4 py-3.5 text-left transition-colors ${
-        aktivni ? "border-pine bg-white" : "border-ink/10 bg-white/50 hover:border-ink/30"
+        aktivni
+          ? "border-pine bg-white"
+          : "border-ink/10 bg-white/50 hover:border-ink/30"
       }`}
     >
       <span
@@ -55,12 +67,22 @@ function Volba({
         <span className="block text-base font-bold">{nazev}</span>
         {popis && <span className="block text-sm text-ink-muted">{popis}</span>}
       </span>
-      <span className="text-base font-bold tabular-nums">{cena ? kc(cena) : "Zdarma"}</span>
+      <span className="text-base font-bold tabular-nums">
+        {cena ? kc(cena) : "Zdarma"}
+      </span>
     </button>
   );
 }
 
-function Krok({ n, nadpis, children }: { n: string; nadpis: string; children: React.ReactNode }) {
+function Krok({
+  n,
+  nadpis,
+  children,
+}: {
+  n: string;
+  nadpis: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className="border-t border-ink/10 py-8 first:border-0 first:pt-0">
       <h2 className="flex items-center gap-3 text-2xl font-extrabold uppercase tracking-tight">
@@ -98,7 +120,8 @@ export default function Pokladna() {
             Tady by to cinklo
           </h1>
           <p className="mt-5 text-lg leading-relaxed text-ink-soft">
-            Tohle je návrh e-shopu, objednávka se nikam neodeslala a nic jste neplatili.
+            Tohle je návrh e-shopu, objednávka se nikam neodeslala a nic jste
+            neplatili.
           </p>
           <Link
             href="/obchod"
@@ -146,10 +169,32 @@ export default function Pokladna() {
         <div>
           <Krok n="1" nadpis="Kontakt">
             <div className="grid gap-3 sm:grid-cols-2">
-              <input className={pole} placeholder="Jméno" autoComplete="given-name" required />
-              <input className={pole} placeholder="Příjmení" autoComplete="family-name" required />
-              <input className={pole} type="email" placeholder="E-mail" autoComplete="email" required />
-              <input className={pole} type="tel" placeholder="Telefon" autoComplete="tel" required />
+              <input
+                className={pole}
+                placeholder="Jméno"
+                autoComplete="given-name"
+                required
+              />
+              <input
+                className={pole}
+                placeholder="Příjmení"
+                autoComplete="family-name"
+                required
+              />
+              <input
+                className={pole}
+                type="email"
+                placeholder="E-mail"
+                autoComplete="email"
+                required
+              />
+              <input
+                className={pole}
+                type="tel"
+                placeholder="Telefon"
+                autoComplete="tel"
+                required
+              />
             </div>
           </Krok>
 
@@ -168,9 +213,25 @@ export default function Pokladna() {
             </div>
             {doprava === "kuryr" && (
               <div className="mt-3 grid gap-3 sm:grid-cols-[2fr_1fr]">
-                <input className={`${pole} sm:col-span-2`} placeholder="Ulice a číslo" autoComplete="street-address" required />
-                <input className={pole} placeholder="Město" autoComplete="address-level2" required />
-                <input className={pole} placeholder="PSČ" autoComplete="postal-code" inputMode="numeric" required />
+                <input
+                  className={`${pole} sm:col-span-2`}
+                  placeholder="Ulice a číslo"
+                  autoComplete="street-address"
+                  required
+                />
+                <input
+                  className={pole}
+                  placeholder="Město"
+                  autoComplete="address-level2"
+                  required
+                />
+                <input
+                  className={pole}
+                  placeholder="PSČ"
+                  autoComplete="postal-code"
+                  inputMode="numeric"
+                  required
+                />
               </div>
             )}
             {doprava === "vydejna" && (
@@ -190,7 +251,9 @@ export default function Pokladna() {
                     onClick={() => setPobocka(b.slug)}
                     aria-pressed={b.slug === pobocka}
                     className={`rounded-full px-5 py-2.5 text-base font-bold transition-colors ${
-                      b.slug === pobocka ? "bg-pine text-cream" : "bg-ink/5 hover:bg-ink/10"
+                      b.slug === pobocka
+                        ? "bg-pine text-cream"
+                        : "bg-ink/5 hover:bg-ink/10"
                     }`}
                   >
                     {b.city}
@@ -216,16 +279,21 @@ export default function Pokladna() {
         </div>
 
         <aside className="h-fit rounded-[2rem] bg-pine p-6 text-cream lg:sticky lg:top-24 md:p-8">
-          <h2 className="text-2xl font-extrabold uppercase tracking-tight">Vaše objednávka</h2>
+          <h2 className="text-2xl font-extrabold uppercase tracking-tight">
+            Vaše objednávka
+          </h2>
           <ul className="mt-5 space-y-4">
             {r.map((x) => (
               <li key={x.slug + x.varianta} className="flex items-center gap-4">
                 <div
                   className="relative h-16 w-16 shrink-0 rounded-xl"
-                  style={{ background: `color-mix(in srgb, ${x.produkt.barva} 75%, #F7F4EF)` }}
+                  style={{
+                    background: `color-mix(in srgb, ${x.produkt.barva} 75%, #F7F4EF)`,
+                  }}
                 >
                   {x.produkt.foto && (
                     <Image
+                      unoptimized
                       src={x.produkt.foto}
                       alt=""
                       fill
@@ -238,10 +306,14 @@ export default function Pokladna() {
                   </span>
                 </div>
                 <div className="min-w-0 flex-1">
-                  <p className="text-base font-bold leading-snug">{x.produkt.nazev}</p>
+                  <p className="text-base font-bold leading-snug">
+                    {x.produkt.nazev}
+                  </p>
                   <p className="text-sm text-cream/60">{x.v.nazev}</p>
                 </div>
-                <span className="text-base font-bold tabular-nums">{kc(x.ks * x.v.cena)}</span>
+                <span className="text-base font-bold tabular-nums">
+                  {kc(x.ks * x.v.cena)}
+                </span>
               </li>
             ))}
           </ul>
@@ -265,14 +337,21 @@ export default function Pokladna() {
             )}
             <div className="flex items-baseline justify-between border-t border-cream/15 pt-4">
               <dt className="text-lg font-bold">Celkem s DPH</dt>
-              <dd className="text-4xl font-extrabold tabular-nums text-lime">{kc(celkem)}</dd>
+              <dd className="text-4xl font-extrabold tabular-nums text-lime">
+                {kc(celkem)}
+              </dd>
             </div>
           </dl>
 
           <label className="mt-6 flex cursor-pointer items-start gap-3 text-sm leading-snug text-cream/80">
-            <input type="checkbox" required className="mt-0.5 h-5 w-5 shrink-0 accent-[#B4D777]" />
-            Potvrzuji, že je mi 18 let nebo více, a souhlasím s obchodními podmínkami. Beru na
-            vědomí, že zásilku převezme jen dospělá osoba po ověření věku.
+            <input
+              type="checkbox"
+              required
+              className="mt-0.5 h-5 w-5 shrink-0 accent-[#B4D777]"
+            />
+            Potvrzuji, že je mi 18 let nebo více, a souhlasím s obchodními
+            podmínkami. Beru na vědomí, že zásilku převezme jen dospělá osoba po
+            ověření věku.
           </label>
 
           <button

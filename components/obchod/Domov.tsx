@@ -126,6 +126,7 @@ export default function Domov({ foto }: { foto?: boolean }) {
                   }`}
                 >
                   <Image
+                    unoptimized
                     src={k.foto}
                     alt=""
                     fill
@@ -162,6 +163,7 @@ export default function Domov({ foto }: { foto?: boolean }) {
       {/* Jak to chodí */}
       <section className="relative overflow-hidden bg-pine text-cream">
         <Image
+          unoptimized
           src="/obchod/listy.webp"
           alt=""
           fill
@@ -170,7 +172,9 @@ export default function Domov({ foto }: { foto?: boolean }) {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-pine via-pine/70 to-pine" />
         <div className="relative mx-auto max-w-[86rem] px-4 py-20 md:px-8 md:py-28">
-          <p className="text-sm font-bold uppercase tracking-[0.25em] text-lime">Jak to chodí</p>
+          <p className="text-sm font-bold uppercase tracking-[0.25em] text-lime">
+            Jak to chodí
+          </p>
           <h2 className="mt-4 max-w-4xl text-4xl font-extrabold uppercase leading-[1.05] tracking-tight md:text-7xl">
             Tři kroky, žádná věda
           </h2>
@@ -180,9 +184,15 @@ export default function Domov({ foto }: { foto?: boolean }) {
                 key={k.n}
                 className="rounded-[1.75rem] border border-cream/15 bg-cream/[0.07] p-7 backdrop-blur-sm md:p-9"
               >
-                <span className="text-6xl font-extrabold tabular-nums text-lime">{k.n}</span>
-                <h3 className="mt-6 text-2xl font-extrabold uppercase">{k.nadpis}</h3>
-                <p className="mt-2 text-lg leading-relaxed text-cream/75">{cz(k.text)}</p>
+                <span className="text-6xl font-extrabold tabular-nums text-lime">
+                  {k.n}
+                </span>
+                <h3 className="mt-6 text-2xl font-extrabold uppercase">
+                  {k.nadpis}
+                </h3>
+                <p className="mt-2 text-lg leading-relaxed text-cream/75">
+                  {cz(k.text)}
+                </p>
               </div>
             ))}
           </div>
@@ -197,7 +207,9 @@ export default function Domov({ foto }: { foto?: boolean }) {
               Máte to kousek? Stavte se.
             </h2>
             <p className="vyrovnat mt-5 max-w-md text-lg leading-relaxed text-ink-soft">
-              {cz("Objednávku nachystáme na kterékoli prodejně. Vyzvednutí nic nestojí.")}
+              {cz(
+                "Objednávku nachystáme na kterékoli prodejně. Vyzvednutí nic nestojí.",
+              )}
             </p>
           </div>
           <ul className="divide-y divide-ink/10 border-y border-ink/10">
@@ -252,7 +264,9 @@ export default function Domov({ foto }: { foto?: boolean }) {
                       +
                     </span>
                   </summary>
-                  <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-soft">{cz(d.a)}</p>
+                  <p className="mt-3 max-w-2xl text-lg leading-relaxed text-ink-soft">
+                    {cz(d.a)}
+                  </p>
                 </details>
               ))}
             </div>
