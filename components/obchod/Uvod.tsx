@@ -208,8 +208,8 @@ function UvodPocitac({ v }: { v: ReturnType<typeof useVystava> }) {
   const p = POLOZKY[v.i].produkt;
   const { i, vyber, setBezi } = v;
 
-  // Pozice myši → proměnné: pozadí uhýbá málo, produkt víc a naklání se,
-  // světlo jde za kurzorem.
+  // Pozice myši → proměnné: pozadí jemně uhýbá a světlo jde za kurzorem.
+  // Produkt se nehýbe ani nenaklání (náklon ho deformoval).
   const pohyb = (e: React.PointerEvent) => {
     if (e.pointerType !== "mouse" || !panel.current) return;
     const r = panel.current.getBoundingClientRect();
@@ -293,7 +293,7 @@ function UvodPocitac({ v }: { v: ReturnType<typeof useVystava> }) {
           aria-hidden
           className="absolute -bottom-[2.5%] left-1/2 h-[7%] w-[58%] -translate-x-1/2 rounded-[100%] bg-black/55 blur-lg"
         />
-        <div className="absolute inset-0 origin-bottom transition-transform duration-500 ease-out [transform:perspective(900px)_rotateY(calc(var(--mx)*14deg))_rotateX(calc(var(--my)*-6deg))] motion-reduce:transform-none">
+        <div className="absolute inset-0">
           <Produkty i={i} velikost="(min-width: 1280px) 420px, 34vw" />
         </div>
         <Link
