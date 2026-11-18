@@ -6,14 +6,22 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { cenaOd, kc, najdiProdukt, type Produkt } from "@/lib/obchod/produkty";
 import { useKosik } from "./Kosik";
 
-// Co se střídá na podstavci. `vyska` = jak vysoký je produkt vůči scéně.
-const VYSTAVA: { slug: string; stitek: string; vyska: number }[] = [
-  { slug: "cbd-kvet", stitek: "CBD květ", vyska: 1 },
-  { slug: "t9hc-kvet-balanced", stitek: "Květy", vyska: 1 },
-  { slug: "9h-hhcp-joint-laughing-buddha", stitek: "Jointy", vyska: 1.08 },
-  { slug: "vape-gorilla-kush", stitek: "Vapy", vyska: 1.08 },
-  { slug: "kava-kava-borongoru", stitek: "Kava kava", vyska: 1 },
-];
+// Co se střídá na podstavci. `dno` = kolik procent výšky fotky je pod
+// produktem prázdných (o tolik se posune dolů, aby stál na podstavci),
+// `vyska` = zvětšení od paty.
+const VYSTAVA: { slug: string; stitek: string; dno: number; vyska: number }[] =
+  [
+    { slug: "cbd-kvet", stitek: "CBD květ", dno: 2.4, vyska: 1 },
+    { slug: "t9hc-kvet-balanced", stitek: "Květy", dno: 9.5, vyska: 1 },
+    {
+      slug: "9h-hhcp-joint-laughing-buddha",
+      stitek: "Jointy",
+      dno: 9.5,
+      vyska: 1.06,
+    },
+    { slug: "vape-gorilla-kush", stitek: "Vapy", dno: 9.5, vyska: 1.06 },
+    { slug: "kava-kava-borongoru", stitek: "Kava kava", dno: 9.5, vyska: 1 },
+  ];
 const POLOZKY = VYSTAVA.map((v) => ({
   ...v,
   produkt: najdiProdukt(v.slug) as Produkt,
@@ -59,7 +67,7 @@ function Produkty({ i, velikost }: { i: number; velikost: string }) {
                 : "pointer-events-none translate-y-10 rotate-6 scale-90 opacity-0"
           }`}
         >
-          <div className="absolute inset-0 animate-vznaset motion-reduce:animate-none">
+          <div className="absolute inset-0">
             <Image
               unoptimized
               src={p.produkt.foto!}
@@ -67,8 +75,11 @@ function Produkty({ i, velikost }: { i: number; velikost: string }) {
               fill
               priority={x === 0}
               sizes={velikost}
-              className="object-contain drop-shadow-[0_30px_30px_rgba(0,0,0,0.45)]"
-              style={{ transform: `scale(${p.vyska})` }}
+              className="object-contain drop-shadow-[0_10px_14px_rgba(0,0,0,0.35)]"
+              style={{
+                transformOrigin: `50% ${100 - p.dno}%`,
+                transform: `translateY(${p.dno}%) scale(${p.vyska})`,
+              }}
             />
           </div>
         </div>
@@ -274,10 +285,15 @@ function UvodPocitac({ v }: { v: ReturnType<typeof useVystava> }) {
       >
         <div
           aria-hidden
-          className="absolute inset-[4%] rounded-full opacity-35 blur-3xl transition-colors duration-700"
+          className="absolute inset-x-[12%] bottom-[8%] top-[14%] rounded-full opacity-[0.14] blur-3xl transition-colors duration-700"
           style={{ background: p.barva }}
         />
-        <div className="absolute inset-0 transition-transform duration-500 ease-out [transform:perspective(900px)_translate3d(calc(var(--mx)*46px),calc(var(--my)*30px),0)_rotateY(calc(var(--mx)*16deg))_rotateX(calc(var(--my)*-12deg))] motion-reduce:transform-none">
+        {/* stín pod produktem na desce podstavce */}
+        <div
+          aria-hidden
+          className="absolute -bottom-[2.5%] left-1/2 h-[7%] w-[58%] -translate-x-1/2 rounded-[100%] bg-black/55 blur-lg"
+        />
+        <div className="absolute inset-0 origin-bottom transition-transform duration-500 ease-out [transform:perspective(900px)_rotateY(calc(var(--mx)*14deg))_rotateX(calc(var(--my)*-6deg))] motion-reduce:transform-none">
           <Produkty i={i} velikost="(min-width: 1280px) 420px, 34vw" />
         </div>
         <Link
@@ -374,7 +390,7 @@ function UvodTelefon({ v }: { v: ReturnType<typeof useVystava> }) {
         <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-[#17534c] to-transparent" />
         <div
           aria-hidden
-          className="absolute left-1/2 top-[10%] h-[50%] w-[62%] -translate-x-1/2 rounded-full opacity-35 blur-3xl transition-colors duration-700"
+          className="absolute left-1/2 top-[16%] h-[42%] w-[56%] -translate-x-1/2 rounded-full opacity-[0.14] blur-3xl transition-colors duration-700"
           style={{ background: p.barva }}
         />
         <div
@@ -386,6 +402,10 @@ function UvodTelefon({ v }: { v: ReturnType<typeof useVystava> }) {
             transition: tah ? "none" : "transform 0.4s ease-out",
           }}
         >
+          <div
+            aria-hidden
+            className="absolute -bottom-[2.5%] left-1/2 h-[7%] w-[58%] -translate-x-1/2 rounded-[100%] bg-black/55 blur-md"
+          />
           <Produkty i={v.i} velikost="70vw" />
         </div>
         <button
@@ -431,10 +451,10 @@ export default function Uvod() {
       style={
         {
           "--pl": "59%",
-          "--pt": "12%",
+          "--pt": "19%",
           "--pw": "32%",
           "--ph": "60%",
-          "--mt": "7%",
+          "--mt": "13%",
           "--mp": "50%",
         } as React.CSSProperties
       }
