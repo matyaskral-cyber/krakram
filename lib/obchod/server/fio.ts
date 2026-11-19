@@ -13,7 +13,15 @@ let pamet: { kdy: number; pohyby: Pohyb[] } | null = null;
 
 // Jen s vlastním tajemstvím a skutečným účtem: bez nich by šel stav
 // „zaplaceno“ v cookie podvrhnout nebo by QR kód mířil na ukázkový účet.
+//
+// VYPNUTO, dokud objednávky nežijí v databázi. Bez ní nejde zaručit, že se
+// variabilní symbol neopakuje a že jedna platba nezaplatí dvě objednávky
+// (k tomu je potřeba trvale si zapsat ID bankovního pohybu k objednávce).
+// Až databáze bude, doplnit ten zápis a přepnout na true.
+const OBJEDNAVKY_V_DATABAZI = false;
+
 export const fioZapnuto = () =>
+  OBJEDNAVKY_V_DATABAZI &&
   Boolean(process.env.FIO_TOKEN && nastaveni.tajemstvi && nastaveni.iban);
 
 async function pohyby(): Promise<Pohyb[]> {
