@@ -4,12 +4,17 @@
 // Zapne se proměnnou FIO_TOKEN (token jen ke čtení, z internetového
 // bankovnictví Fio). NAPSÁNO PODLE DOKUMENTACE FIO, NEZKOUŠENO — chybí token.
 
-type Pohyb = { vs: string; castka: number; mena: string };
+import { nastaveni } from "./nastaveni";
+
+type Pohyb = { vs: string; castka: number; mena: string; den: string };
 
 // Fio dovoluje jeden dotaz za 30 s na token, proto se odpověď chvíli drží.
 let pamet: { kdy: number; pohyby: Pohyb[] } | null = null;
 
-export const fioZapnuto = () => Boolean(process.env.FIO_TOKEN);
+// Jen s vlastním tajemstvím a skutečným účtem: bez nich by šel stav
+// „zaplaceno“ v cookie podvrhnout nebo by QR kód mířil na ukázkový účet.
+export const fioZapnuto = () =>
+  Boolean(process.env.FIO_TOKEN && nastaveni.tajemstvi && nastaveni.iban);
 
 async function pohyby(): Promise<Pohyb[]> {
   if (pamet && Date.now() - pamet.kdy < 35_000) return pamet.pohyby;
@@ -28,16 +33,25 @@ async function pohyby(): Promise<Pohyb[]> {
     castka: Number(t.column1?.value ?? 0),
     vs: String(t.column5?.value ?? ""),
     mena: String(t.column14?.value ?? ""),
+    den: String(t.column0?.value ?? "").slice(0, 10),
   }));
   pamet = { kdy: Date.now(), pohyby: nove };
   return nove;
 }
 
-// Dorazila platba s tímhle variabilním symbolem aspoň v dané výši?
-export async function prevodDorazil(vs: string, castka: number) {
+// Dorazila platba k téhle objednávce? Musí sedět variabilní symbol, částka
+// přesně na korunu a platba nesmí být starší než objednávka.
+// PŘED SPUŠTĚNÍM (s databází): čísla objednávek brát z číselné řady, aby se
+// variabilní symbol nemohl opakovat, a ke každé objednávce si zapsat ID
+// bankovního pohybu, aby jedna platba nemohla zaplatit dvě objednávky.
+export async function prevodDorazil(vs: string, castka: number, vytvoreno: string) {
   if (!fioZapnuto()) return false;
-  const prislo = (await pohyby())
-    .filter((p) => p.vs.replace(/^0+/, "") === vs.replace(/^0+/, "") && p.mena === "CZK" && p.castka > 0)
-    .reduce((a, p) => a + p.castka, 0);
-  return prislo >= castka;
+  const odDne = vytvoreno.slice(0, 10);
+  return (await pohyby()).some(
+    (p) =>
+      p.vs.replace(/^0+/, "") === vs.replace(/^0+/, "") &&
+      p.mena === "CZK" &&
+      Math.round(p.castka * 100) === castka * 100 &&
+      p.den >= odDne,
+  );
 }

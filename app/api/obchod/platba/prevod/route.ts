@@ -9,7 +9,7 @@ export async function GET(req: Request) {
   if (!o || o.platba.id !== "prevod") return Response.json({ zaplaceno: false });
   if (o.platba.stav === "zaplaceno") return Response.json({ zaplaceno: true });
   try {
-    if (fioZapnuto() && (await prevodDorazil(o.cislo, o.ceny.celkem))) {
+    if (fioZapnuto() && (await prevodDorazil(o.cislo, o.ceny.celkem, o.vytvoreno))) {
       o.platba = { ...o.platba, stav: "zaplaceno", brana: "Fio" };
       await uloz(o, jeHttps(req));
       return Response.json({ zaplaceno: true });
