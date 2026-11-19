@@ -33,7 +33,7 @@ const KROKY = [
   {
     n: "03",
     nadpis: "Ukážete doklad",
-    text: "Balík vydají jen dospělému. Kurýr i výdejna si věk ověří podle občanky.",
+    text: "Věk si ověříte jednou v pokladně. Balík pak vydají jen dospělému, podle občanky.",
   },
 ];
 
@@ -44,11 +44,15 @@ const DOTAZY = [
   },
   {
     q: "Jak ověřujete věk?",
-    a: "Dvakrát. V pokladně potvrdíte, že vám bylo 18, a při předání to dopravce zkontroluje podle dokladu. Bez něj balík nevydá.",
+    a: "Dvakrát. U kuřiva a vapů si věk ověříte v pokladně bankovní identitou nebo dokladem, stačí to jednou. A při předání ho dopravce zkontroluje podle občanky, bez ní balík nevydá.",
   },
   {
     q: "Můžu si objednávku vyzvednout?",
     a: "Ano. V pokladně vyberte osobní odběr a prodejnu. Jakmile bude nachystáno, napíšeme vám e-mail.",
+  },
+  {
+    q: "Jak se dá zaplatit?",
+    a: "Kartou, převodem přes QR kód, při převzetí, nebo až na prodejně, když si objednávku vyzvednete.",
   },
   {
     q: "Kdy to dorazí?",

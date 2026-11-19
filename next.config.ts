@@ -40,6 +40,29 @@ const nextConfig: NextConfig = {
         source: "/(.*)",
         headers: securityHeaders,
       },
+      // Pokladna e-shopu smí načíst widget ověření věku (Ověř18), ale jen
+      // když je služba zapnutá klíčem. Zbytek webu zůstává zavřený.
+      ...(process.env.OVER18_KLIC
+        ? [
+            {
+              source: "/obchod/pokladna",
+              headers: [
+                {
+                  key: "Content-Security-Policy",
+                  value: [
+                    "default-src 'self'",
+                    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://api.over18.cz",
+                    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://api.over18.cz",
+                    "font-src 'self' https://fonts.gstatic.com",
+                    "img-src 'self' data: blob: https://api.over18.cz",
+                    "connect-src 'self' https://api.over18.cz",
+                    "frame-src https://api.over18.cz https://www.over18.cz",
+                  ].join("; "),
+                },
+              ],
+            },
+          ]
+        : []),
     ];
   },
 };

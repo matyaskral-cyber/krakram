@@ -37,14 +37,18 @@ export default function Paticka() {
               Nákup
             </h3>
             <ul className="mt-4 space-y-2 text-base text-cream/80">
-              <li>Doprava a platba</li>
-              <li>Ověření věku</li>
-              <li>Vrácení zboží</li>
-              <li>
-                <Link href="/obchodni-podminky" className="hover:text-cream">
-                  Obchodní podmínky
-                </Link>
-              </li>
+              {[
+                ["/obchod/doprava-a-platba", "Doprava a platba"],
+                ["/obchod/overeni-veku", "Ověření věku"],
+                ["/obchod/vraceni-zbozi", "Vrácení a reklamace"],
+                ["/obchodni-podminky", "Obchodní podmínky"],
+              ].map(([kam, co]) => (
+                <li key={kam}>
+                  <Link href={kam} className="hover:text-cream">
+                    {co}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>
@@ -65,13 +69,16 @@ export default function Paticka() {
               18+
             </span>
             <p className="max-w-xl text-sm leading-relaxed text-cream/70">
-              Prodáváme jen dospělým. Věk potvrzujete v{"\u00a0"}pokladně a
-              {"\u00a0"}dopravce ho zkontroluje při předání. Kratom v{"\u00a0"}
-              e-shopu není, ten je jen na prodejnách.
+              Prodej osobám mladším 18 let je zakázán. U{"\u00a0"}kuřiva a
+              {"\u00a0"}vapů ověřujeme věk už v{"\u00a0"}pokladně, u{"\u00a0"}
+              všeho při předání. Kratom v{"\u00a0"}e-shopu není, ten je jen na
+              prodejnách.
             </p>
           </div>
           <p className="text-sm text-cream/60">
             KSH Partners s.r.o. · IČO 23990368
+            <br />
+            Chudenická 1059/30, 102 00 Praha 10
             <br />© {new Date().getFullYear()} KraKrám
           </p>
         </div>

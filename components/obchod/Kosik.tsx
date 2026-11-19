@@ -3,12 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
-import { DOPRAVA_ZDARMA_OD, kc, najdiProdukt } from "@/lib/obchod/produkty";
+import { MAX_KS, radky, type Polozka } from "@/lib/obchod/objednavka";
+import { DOPRAVA_ZDARMA_OD, kc } from "@/lib/obchod/produkty";
 
-type Polozka = { slug: string; varianta: string; ks: number };
+export { radky };
 
 type Stav = {
   polozky: Polozka[];
+  // košík už je načtený z prohlížeče (do té doby je prázdný jen naoko)
+  nacteno: boolean;
   pocet: number;
   soucet: number;
   otevreno: boolean;
@@ -26,14 +29,6 @@ export function useKosik() {
   const s = useContext(Ctx);
   if (!s) throw new Error("useKosik mimo KosikProvider");
   return s;
-}
-
-export function radky(polozky: Polozka[]) {
-  return polozky.flatMap((p) => {
-    const produkt = najdiProdukt(p.slug);
-    const varianta = produkt?.varianty.find((v) => v.id === p.varianta);
-    return produkt && varianta ? [{ ...p, produkt, v: varianta }] : [];
-  });
 }
 
 export function KosikProvider({ children }: { children: React.ReactNode }) {
@@ -60,6 +55,7 @@ export function KosikProvider({ children }: { children: React.ReactNode }) {
     const r = radky(polozky);
     return {
       polozky,
+      nacteno,
       pocet: r.reduce((a, x) => a + x.ks, 0),
       soucet: r.reduce((a, x) => a + x.ks * x.v.cena, 0),
       otevreno,
@@ -72,7 +68,7 @@ export function KosikProvider({ children }: { children: React.ReactNode }) {
           );
           return je
             ? stare.map((p) =>
-                p === je ? { ...p, ks: Math.min(p.ks + ks, 20) } : p,
+                p === je ? { ...p, ks: Math.min(p.ks + ks, MAX_KS) } : p,
               )
             : [...stare, { slug, varianta, ks }];
         });
@@ -84,13 +80,13 @@ export function KosikProvider({ children }: { children: React.ReactNode }) {
             ? stare.filter((p) => !(p.slug === slug && p.varianta === varianta))
             : stare.map((p) =>
                 p.slug === slug && p.varianta === varianta
-                  ? { ...p, ks: Math.min(ks, 20) }
+                  ? { ...p, ks: Math.min(ks, MAX_KS) }
                   : p,
               ),
         ),
       vyprazdni: () => setPolozky([]),
     };
-  }, [polozky, otevreno]);
+  }, [polozky, otevreno, nacteno]);
 
   return (
     <Ctx.Provider value={stav}>
@@ -242,7 +238,7 @@ function Supl() {
                         alt=""
                         fill
                         sizes="80px"
-                        className={`object-contain ${x.produkt.splyvat ? "rounded-2xl mix-blend-multiply" : "p-1.5"}`}
+                        className="object-contain p-1.5"
                       />
                     )}
                   </div>

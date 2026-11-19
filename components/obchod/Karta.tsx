@@ -73,11 +73,7 @@ export default function Karta({
               fill
               priority={priorita}
               sizes="(min-width: 1024px) 23vw, (min-width: 640px) 31vw, 46vw"
-              className={`object-contain transition-transform duration-500 ease-out group-hover:-rotate-3 group-hover:scale-110 ${
-                produkt.splyvat
-                  ? "mix-blend-multiply"
-                  : "p-5 drop-shadow-[0_18px_18px_rgba(0,0,0,0.22)] md:p-7"
-              }`}
+              className="object-contain p-5 drop-shadow-[0_18px_18px_rgba(0,0,0,0.22)] transition-transform duration-500 ease-out group-hover:-rotate-3 group-hover:scale-110 md:p-7"
             />
           ) : (
             <Etiketa produkt={produkt} />
