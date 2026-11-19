@@ -61,3 +61,15 @@
 .prose-kratom em {
   @apply italic text-ink-soft;
 }
+
+/* E-shop: vyrovnané řádky – nadpisy do stejně dlouhých řádků, odstavce bez
+   osamoceného slova na konci. */
+.obchod :is(h1, h2, h3, summary) {
+  text-wrap: balance;
+}
+.obchod p {
+  text-wrap: pretty;
+}
+.obchod .vyrovnat {
+  text-wrap: balance;
+}
