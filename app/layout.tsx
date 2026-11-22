@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import CookieConsent from "@/components/CookieConsent";
+import { Analytics } from "@vercel/analytics/next";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -43,6 +44,8 @@ export default function RootLayout({
         </div>
         {children}
         <CookieConsent />
+        {/* Návštěvnost přes Vercel Web Analytics: bez cookies, jen souhrnné počty. */}
+        <Analytics />
       </body>
     </html>
   );
