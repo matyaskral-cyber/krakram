@@ -26,6 +26,15 @@ export default function ZasadyCookies() {
             <p className="text-ink-muted text-xs mt-2">Doba uchování: relace / 1 rok</p>
           </div>
           <div className="border border-border-green rounded-xl p-5">
+            <p className="font-bold text-ink mb-1">Měření návštěvnosti bez cookies</p>
+            <p className="text-ink-soft text-sm leading-relaxed">
+              Počty návštěv a zobrazených stránek počítáme službou Vercel Web Analytics.
+              Neukládá do vašeho zařízení žádné cookies, nesleduje vás mezi weby
+              a pracuje jen se souhrnnými čísly, ze kterých vás nelze poznat.
+            </p>
+            <p className="text-ink-muted text-xs mt-2">Poskytovatel: Vercel Inc.</p>
+          </div>
+          <div className="border border-border-green rounded-xl p-5">
             <p className="font-bold text-ink mb-1">Analytické cookies <span className="text-xs text-ink-muted font-normal ml-2">Vyžadují souhlas</span></p>
             <p className="text-ink-soft text-sm leading-relaxed">
               Umožňují nám sledovat návštěvnost a chování uživatelů na webu
