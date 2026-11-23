@@ -23,10 +23,6 @@ export default function VyberVydejny({
         maxLength={120}
         required
       />
-      <p className="mt-2 !text-sm !leading-snug text-ink-muted">
-        Jen místa s obsluhou. Do samoobslužného boxu balík poslat nesmíme, tam
-        by věk nikdo nezkontroloval.
-      </p>
       <Navrh className="mt-2">
         v ostrém provozu se tu vybírá na mapě Zásilkovny.
       </Navrh>

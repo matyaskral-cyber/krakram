@@ -12,10 +12,11 @@ export type Polozka = { slug: string; varianta: string; ks: number };
 export type Radek = Polozka & { produkt: Produkt; v: Varianta };
 
 export type DopravaId = "vydejna" | "kuryr" | "odber";
-export type PlatbaId = "karta" | "prevod" | "dobirka" | "prodejna";
+export type PlatbaId = "karta" | "prevod" | "prodejna";
 
 export const MAX_KS = 20;
-export const REZERVACE_BEZ_OVERENI = false;
+// Kdo platí až u pultu, tomu věk ověří obsluha podle dokladu.
+export const REZERVACE_BEZ_OVERENI = true;
 
 export const DOPRAVY: {
   id: DopravaId;
@@ -26,13 +27,13 @@ export const DOPRAVY: {
   {
     id: "vydejna",
     nazev: "Výdejní místo Zásilkovny",
-    popis: "Jen místa s obsluhou, ta zkontroluje doklad",
+    popis: "Výdejní místa i boxy po celém Česku",
     cena: 79,
   },
   {
     id: "kuryr",
     nazev: "Kurýr na adresu",
-    popis: "Předá jen dospělému, podle dokladu",
+    popis: "Doveze až ke dveřím",
     cena: 129,
   },
   {
@@ -63,13 +64,6 @@ export const PLATBY: {
     popis: "Kód naskenujete v bankovní aplikaci",
     cena: 0,
     doprava: ["vydejna", "kuryr", "odber"],
-  },
-  {
-    id: "dobirka",
-    nazev: "Při převzetí",
-    popis: "Zaplatíte dopravci, hotově nebo kartou",
-    cena: 39,
-    doprava: ["vydejna", "kuryr"],
   },
   {
     id: "prodejna",
@@ -103,11 +97,9 @@ export function spocitej(
     platbyPro(d.id).find((x) => x.id === platbaId) ?? platbyPro(d.id)[0];
   const doprava = zbozi >= DOPRAVA_ZDARMA_OD ? 0 : d.cena;
 
-  // Zboží, u kterého zákon chce věk ověřit už při prodeji na dálku.
+  // Zboží s kolkem: věk se ověřuje, ostatní je sběratelské a neověřuje se.
   const vekZbozi = r.filter((x) => x.produkt.vek === "online");
-  // Rezervace s platbou u pultu: úřady nikde nepotvrdily, že nejde o prodej
-  // na dálku, proto se věk ověřuje i tady (stejně to dělají velké vape
-  // e-shopy). Kdyby právník řekl opak, stačí přepnout REZERVACE_BEZ_OVERENI.
+  // Rezervace s platbou u pultu: věk ověří obsluha, online krok odpadá.
   const naProdejne =
     REZERVACE_BEZ_OVERENI && d.id === "odber" && p.id === "prodejna";
 
@@ -154,8 +146,8 @@ export type Objednavka = {
   };
   zakaznik: Zakaznik;
   // online = ověřeno v pokladně, prodejna = ověří obsluha u pultu,
-  // predani = v košíku není nic, co by chtělo ověření předem
-  vek: { zpusob: "online" | "prodejna" | "predani"; metoda?: string };
+  // zadne = v košíku je jen sběratelské zboží, věk se neověřuje
+  vek: { zpusob: "online" | "prodejna" | "zadne"; metoda?: string };
   poznamka?: string;
 };
 

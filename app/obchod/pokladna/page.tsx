@@ -56,7 +56,6 @@ const KLIC = "krakram-pokladna";
 const TLACITKO: Record<PlatbaId, string> = {
   karta: "Objednat a zaplatit",
   prevod: "Objednat a zaplatit převodem",
-  dobirka: "Objednat s platbou při převzetí",
   prodejna: "Rezervovat na prodejně",
 };
 
@@ -216,7 +215,7 @@ export default function Pokladna() {
   const odesli = async (e: React.FormEvent) => {
     e.preventDefault();
     if (v.overitVek && !vek?.overeno) {
-      setChyba("Ještě zbývá ověřit věk, je to krok 4.");
+      setChyba("Ještě zbývá ověřit věk, je to poslední krok.");
       document.getElementById("vek")?.scrollIntoView({ block: "center" });
       return;
     }
@@ -412,6 +411,7 @@ export default function Pokladna() {
             </div>
           </Krok>
 
+          {v.vekZbozi.length > 0 && (
           <Krok n={4} nadpis="Ověření věku" id="vek">
             <OvereniVeku
               stav={vek}
@@ -421,9 +421,10 @@ export default function Pokladna() {
               }}
               zbozi={v.vekZbozi.map((x) => x.produkt.nazev)}
               // zboží s ověřením v košíku je, ale platí se až u pultu
-              naProdejne={v.vekZbozi.length > 0 && !v.overitVek}
+              naProdejne={!v.overitVek}
             />
           </Krok>
+          )}
         </div>
 
         <aside className="h-fit rounded-[2rem] bg-pine p-6 text-cream md:p-8 lg:sticky lg:top-24">
@@ -517,7 +518,7 @@ export default function Pokladna() {
               >
                 obchodními podmínkami
               </Link>
-              . Zásilku převezme jen dospělý, který ukáže doklad.
+              .
             </span>
           </label>
 

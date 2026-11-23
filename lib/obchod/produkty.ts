@@ -34,9 +34,9 @@ export type Produkt = {
   vBaleni: string[];
   uchovani: string;
   upozorneni: string;
-  // online = zákon chce věk ověřit už při prodeji na dálku (kuřivo, vapy),
-  // doklad = prodáváme jen dospělým, doklad se ukazuje při převzetí
-  vek: "online" | "doklad";
+  // online = zboží s kolkem (Canapuff), věk se ověřuje už v pokladně,
+  // zadne = sběratelský předmět, věk se neověřuje (stanovisko právníka)
+  vek: "online" | "zadne";
   stitek?: string;
 };
 
@@ -88,7 +88,7 @@ const VAROVANI_18 = "Prodej pouze osobám starším 18 let. Uchovávejte mimo do
 const VAROVANI_VAPE =
   "Používání tohoto výrobku škodí vašemu zdraví. Prodej pouze osobám starším 18 let.";
 const VAROVANI_SBER =
-  "Sběratelský předmět, není určen ke konzumaci. Prodej pouze osobám starším 18 let.";
+  "Sběratelský předmět, není určen ke konzumaci. Uchovávejte mimo dosah dětí.";
 
 const UCHOVANI_KVET =
   "V zavřeném obalu, v suchu, chladnu a mimo světlo. Mimo dosah dětí.";
@@ -282,7 +282,7 @@ function kava(
     vBaleni: ["50 g mletého kořene", "zipový sáček, dá se znovu zavřít"],
     uchovani: "V zavřeném sáčku, v suchu a mimo světlo. Mimo dosah dětí.",
     upozorneni: VAROVANI_SBER,
-    vek: "doklad",
+    vek: "zadne",
   };
 }
 
@@ -310,7 +310,7 @@ function kanna(slug: string, gramaz: string, cena: number, barva: string, foto: 
     vBaleni: [`${gramaz} mleté rostliny`, "zipový sáček, dá se znovu zavřít"],
     uchovani: "V zavřeném sáčku, v suchu a mimo světlo. Mimo dosah dětí.",
     upozorneni: VAROVANI_SBER,
-    vek: "doklad",
+    vek: "zadne",
   };
 }
 
@@ -330,6 +330,7 @@ export const produkty: Produkt[] = [
     popis: [
       "Květ technického konopí s THC do 1 %. Bereme ho od Michata z Ostravy, stejný máme ve všech pěti prodejnách.",
       "Vážíme ho až při balení objednávky. Odrůda se podle dodávky mění, aktuální vám napíšeme do potvrzení.",
+      "Prodáváme ho jako sběratelský předmět.",
     ],
     parametry: [
       ["Dodavatel", "Michato s.r.o., Ostrava"],
@@ -339,8 +340,8 @@ export const produkty: Produkt[] = [
     ],
     vBaleni: ["1 g nebo 3 g květu", "uzavíratelný obal"],
     uchovani: UCHOVANI_KVET,
-    upozorneni: VAROVANI_18,
-    vek: "online",
+    upozorneni: VAROVANI_SBER,
+    vek: "zadne",
     stitek: "Z našich prodejen",
   },
   kvet("t9hc-kvet-balanced", "T9HC", "Balanced", "#1FB5C9", "29", ["exotické ovoce", "citrus", "byliny"]),

@@ -57,8 +57,8 @@ export default async function Detail({ params }: Props) {
   const jistoty = [
     ["Skladem", "odchází nejpozději další pracovní den"],
     p.vek === "online"
-      ? ["18+", "věk ověříte jednou, v pokladně"]
-      : ["18+", "při převzetí ukážete doklad"],
+      ? ["18+", "věk ověříte v pokladně, nebo na prodejně"]
+      : ["Sběratelské", "není určeno ke konzumaci"],
     ["Odběr zdarma", "na všech pěti prodejnách"],
   ];
 
@@ -146,7 +146,7 @@ export default async function Detail({ params }: Props) {
 
           <p className="mt-6 flex items-start gap-3 rounded-2xl border-2 border-ink px-4 py-3 text-base font-semibold leading-snug">
             <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-ink text-xs font-extrabold text-cream">
-              18+
+              {p.vek === "online" ? "18+" : "!"}
             </span>
             {cz(p.upozorneni)}
           </p>
@@ -242,7 +242,7 @@ export default async function Detail({ params }: Props) {
           <Rozbalit nadpis="Doprava a platba">
             <p>
               {cz(
-                "Výdejní místo s obsluhou, kurýr na adresu, nebo vyzvednutí na prodejně zdarma. Zaplatíte kartou, převodem přes QR kód, při převzetí, nebo až u pultu.",
+                "Výdejní místo, kurýr na adresu, nebo vyzvednutí na prodejně zdarma. Zaplatíte kartou, převodem přes QR kód, nebo až u pultu při vyzvednutí.",
               )}
             </p>
             <p>
@@ -254,12 +254,11 @@ export default async function Detail({ params }: Props) {
               </Link>
             </p>
           </Rozbalit>
+          {p.vek === "online" && (
           <Rozbalit nadpis="Ověření věku">
             <p>
               {cz(
-                p.vek === "online"
-                  ? "Tohle zboží smíme na dálku prodat jen tomu, kdo si předem ověří věk. Uděláte to v pokladně bankovní identitou nebo dokladem, trvá to asi minutu a stačí to jednou. Doklad ukážete i při převzetí."
-                  : "Prodáváme jen dospělým. Při převzetí ukážete doklad, jinak vám balík nevydají.",
+                "Tohle zboží prodáme jen tomu, komu už bylo 18. Když platíte kartou nebo převodem, ověříte si věk v pokladně bankovní identitou nebo dokladem, trvá to asi minutu a stačí to jednou. Když platíte až na prodejně, ukážete občanku u pultu.",
               )}
             </p>
             <p>
@@ -271,6 +270,7 @@ export default async function Detail({ params }: Props) {
               </Link>
             </p>
           </Rozbalit>
+          )}
           <Rozbalit nadpis="Vrácení a reklamace">
             <p>
               {cz(

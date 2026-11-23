@@ -12,14 +12,13 @@ export default function DopravaAPlatba() {
   return (
     <Stranka
       nadpis="Doprava a platba"
-      uvod="Tři způsoby, jak se k vám objednávka dostane, a čtyři, jak ji zaplatit. Co objednáte v pracovní den, odchází nejpozději další pracovní den."
+      uvod="Tři způsoby, jak se k vám objednávka dostane, a tři, jak ji zaplatit. Co objednáte v pracovní den, odchází nejpozději další pracovní den."
       oddily={[
         {
           nadpis: "Doprava",
           obsah: [
             DOPRAVY.map((d) => `${d.nazev}: ${cena(d.cena)}. ${d.popis}.`),
             `Od ${kc(DOPRAVA_ZDARMA_OD)} je doprava zdarma.`,
-            "Do samoobslužných boxů neposíláme. Zásilku musí předat člověk, který zkontroluje doklad.",
           ],
         },
         {
@@ -27,6 +26,7 @@ export default function DopravaAPlatba() {
           obsah: [
             PLATBY.map((p) => `${p.nazev}: ${cena(p.cena)}. ${p.popis}.`),
             "U převodu dostanete QR kód s částkou i variabilním symbolem. Balit začínáme, jakmile platba dorazí.",
+            "Na dobírku neposíláme. Hotově se dá zaplatit jen při vyzvednutí na prodejně.",
           ],
         },
         {

@@ -19,7 +19,7 @@ export function Logo({ className = "" }: { className?: string }) {
 }
 
 const PAS = [
-  "Předání jen osobám 18+",
+  "Platba kartou i převodem",
   "Osobní odběr na 5 prodejnách",
   "Doprava zdarma od 1 500 Kč",
   "Diskrétní balení",

@@ -8,19 +8,19 @@ export default function OvereniVeku() {
   return (
     <Stranka
       nadpis="Ověření věku"
-      uvod="Prodej osobám mladším 18 let je zakázán. U části zboží nestačí odkliknout, že vám bylo osmnáct. Zákon chce, abychom to opravdu ověřili."
+      uvod="U zboží Canapuff nestačí odkliknout, že vám bylo osmnáct. Věk opravdu ověřujeme, buď online v pokladně, nebo podle dokladu na prodejně."
       oddily={[
         {
           nadpis: "Čeho se to týká",
           obsah: [
-            "Konopných květů, jointů a vapů. Zákon je řadí mezi bylinné výrobky určené ke kouření a elektronické cigarety a u těch se věk ověřuje elektronicky už při nákupu na dálku.",
-            "U kavy a kanny stačí doklad při převzetí.",
+            "Zboží značky Canapuff: květů, jointů a vapů. Prodej osobám mladším 18 let je u něj zakázán.",
+            "CBD květ, kava a kanna jsou sběratelské předměty a věk se u nich neověřuje.",
           ],
         },
         {
           nadpis: "Jak to probíhá",
           obsah: [
-            "V pokladně je krok Ověření věku. Nikam vás neposíláme, uděláte to přímo tam. Vyberete si jeden ze tří způsobů:",
+            "Když máte v košíku zboží Canapuff a platíte kartou nebo převodem, přibude v pokladně krok Ověření věku. Nikam vás neposíláme, uděláte to přímo tam. Vyberete si jeden ze tří způsobů:",
             [
               "Bankovní identita. Přihlásíte se do své banky stejně jako do internetového bankovnictví. Je to stejná identita, kterou se hlásíte na úřady.",
               "MojeID. Přihlásíte se ověřeným účtem MojeID.",
@@ -37,15 +37,9 @@ export default function OvereniVeku() {
           ],
         },
         {
-          nadpis: "Při převzetí",
+          nadpis: "Bez ověření online",
           obsah: [
-            "Doklad si vezměte i tak. Obsluha výdejního místa, kurýr i naše prodejna vydají zásilku jen dospělému, který ho ukáže. Když u toho nebudete vy, musí být dospělý ten, kdo balík přebírá.",
-          ],
-        },
-        {
-          nadpis: "Když to nejde",
-          obsah: [
-            "Nemáte bankovní identitu ani doklad po ruce? Stavte se na kterékoli prodejně. Tam stačí ukázat občanku u pultu.",
+            "Nechcete nic ověřovat online? V pokladně zvolte vyzvednutí na prodejně a platbu až na místě. Zboží vám odložíme a věk ověří obsluha podle občanky u pultu.",
           ],
         },
       ]}

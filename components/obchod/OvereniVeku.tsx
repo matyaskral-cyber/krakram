@@ -109,18 +109,13 @@ export default function OvereniVeku({
   const [neproslo, setNeproslo] = useState(false);
   const [soubor, setSoubor] = useState("");
 
-  if (zbozi.length === 0)
-    return (
-      <p className="!text-base text-ink-soft">
-        V košíku není nic, u čeho by zákon chtěl věk ověřit předem. Stačí, když
-        při převzetí ukážete doklad.
-      </p>
-    );
+  if (zbozi.length === 0) return null;
 
   if (naProdejne)
     return (
       <p className="!text-base text-ink-soft">
-        Platíte až u pultu, takže věk ověří obsluha podle dokladu. Vezměte si
+        {zbozi.length === 1 ? zbozi[0] : "Část košíku"} vydáme jen tomu, komu
+        už bylo 18. Platíte až u pultu, takže věk ověří obsluha. Vezměte si
         občanku nebo jiný doklad s fotkou.
       </p>
     );
@@ -168,13 +163,13 @@ export default function OvereniVeku({
     <div className="rounded-2xl border-2 border-ink/10 bg-white/50 p-4 md:p-5">
       <p className="!text-base font-bold">
         {zbozi.length === 1
-          ? `${zbozi[0]} smíme poslat jen tomu, komu už bylo 18.`
-          : "Část košíku smíme poslat jen tomu, komu už bylo 18."}
+          ? `${zbozi[0]} prodáme jen tomu, komu už bylo 18.`
+          : "Část košíku prodáme jen tomu, komu už bylo 18."}
       </p>
       <p className="mt-1 !text-base !leading-snug text-ink-soft">
-        U kuřiva a vapů to zákon chce ověřit ještě před odesláním objednávky,
-        i když si ji vyzvednete na prodejně. Zabere to asi minutu, uděláte to
-        tady a stačí to jednou.
+        Ověříte to tady, zabere to asi minutu a stačí to jednou. Nechcete
+        nic ověřovat online? Zvolte vyzvednutí a platbu na prodejně, tam
+        stačí ukázat doklad u pultu.
       </p>
 
       {stav.klic ? (

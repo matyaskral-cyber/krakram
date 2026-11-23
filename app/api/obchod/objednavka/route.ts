@@ -113,11 +113,11 @@ export async function POST(req: Request) {
   if (t.souhlas !== true)
     return chyba(400, "Bez souhlasu s obchodními podmínkami to nejde.");
 
-  // Zboží, u kterého zákon chce ověřený věk už při prodeji, bez ověření
-  // neprojde — ani kdyby někdo krok v pokladně obešel.
+  // Zboží s kolkem bez ověřeného věku neprojde, ani kdyby někdo krok
+  // v pokladně obešel.
   const overeni = v.overitVek ? await nactiVek() : null;
   if (v.overitVek && !overeni)
-    return chyba(409, "Ještě zbývá ověřit věk, je to krok 4.");
+    return chyba(409, "Ještě zbývá ověřit věk.");
 
   const objednavka: Objednavka = {
     cislo: noveCislo(),
@@ -134,7 +134,7 @@ export async function POST(req: Request) {
     zakaznik,
     vek: v.overitVek
       ? { zpusob: "online", metoda: overeni!.metoda }
-      : { zpusob: v.vekZbozi.length ? "prodejna" : "predani" },
+      : { zpusob: v.vekZbozi.length ? "prodejna" : "zadne" },
     poznamka: text(t.poznamka, 300) || undefined,
   };
 

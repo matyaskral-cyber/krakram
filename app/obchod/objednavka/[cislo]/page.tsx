@@ -61,9 +61,9 @@ function hlava(o: Objednavka): { nadpis: string; text: string; dobre: boolean } 
       dobre: true,
     };
   return {
-    nadpis: "Máme to, jdeme balit",
-    text: "Zaplatíte při převzetí. Objednávku předáme dopravci nejpozději další pracovní den.",
-    dobre: true,
+    nadpis: "Čekáme na platbu",
+    text: "Objednávku máme, jen ještě není zaplacená.",
+    dobre: false,
   };
 }
 
@@ -78,16 +78,14 @@ function kroky(o: Objednavka) {
         ? { hotovo: true, nadpis: "Zaplaceno převodem", text: "Platbu jsme na účtu našli a přiřadili k objednávce." }
       : o.platba.id === "prevod"
         ? { hotovo: false, nadpis: "Čeká na převod", text: "Okamžitá platba dorazí hned, běžný převod do druhého dne." }
-        : o.platba.id === "prodejna"
-          ? { hotovo: false, nadpis: "Platba až na prodejně", text: `${kc(o.ceny.celkem)} hotově nebo kartou.` }
-          : { hotovo: false, nadpis: "Platba při převzetí", text: `${kc(o.ceny.celkem)} hotově nebo kartou u dopravce.` };
+        : { hotovo: false, nadpis: "Platba až na prodejně", text: `${kc(o.ceny.celkem)} hotově nebo kartou.` };
 
   const vek =
     o.vek.zpusob === "online"
-      ? { hotovo: true, nadpis: "Věk ověřen", text: `V pokladně, ${o.vek.metoda}. Doklad si k převzetí vezměte i tak.` }
+      ? { hotovo: true, nadpis: "Věk ověřen", text: `V pokladně, ${o.vek.metoda}.` }
       : o.vek.zpusob === "prodejna"
         ? { hotovo: false, nadpis: "Věk ověří obsluha", text: "Vezměte si občanku nebo jiný doklad s fotkou." }
-        : { hotovo: false, nadpis: "Doklad při převzetí", text: "Zásilku vydají jen dospělému, který ukáže doklad." };
+        : null;
 
   const doprava =
     o.doprava.id === "odber"
@@ -108,7 +106,7 @@ function kroky(o: Objednavka) {
             text: `${o.doprava.misto}. Až tam balík bude, přijde vám zpráva.`,
           };
 
-  return [platba, vek, doprava];
+  return [platba, vek, doprava].filter((k) => k !== null);
 }
 
 function Nenalezeno() {

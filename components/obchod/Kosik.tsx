@@ -275,8 +275,7 @@ function Supl() {
               </span>
             </div>
             <p className="mt-1 text-sm text-ink-muted">
-              Dopravu vyberete v dalším kroku. Zásilku předáme jen osobě starší
-              18 let.
+              Dopravu vyberete v dalším kroku.
             </p>
             <Link
               href="/obchod/pokladna"

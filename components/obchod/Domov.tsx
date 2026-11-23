@@ -32,8 +32,8 @@ const KROKY = [
   },
   {
     n: "03",
-    nadpis: "Ukážete doklad",
-    text: "Věk si ověříte jednou v pokladně. Balík pak vydají jen dospělému, podle občanky.",
+    nadpis: "Pošleme",
+    text: "Na výdejní místo, kurýrem domů, nebo si objednávku vyzvednete na prodejně.",
   },
 ];
 
@@ -44,7 +44,7 @@ const DOTAZY = [
   },
   {
     q: "Jak ověřujete věk?",
-    a: "Dvakrát. U kuřiva a vapů si věk ověříte v pokladně bankovní identitou nebo dokladem, stačí to jednou. A při předání ho dopravce zkontroluje podle občanky, bez ní balík nevydá.",
+    a: "Jen u zboží Canapuff. Když platíte kartou nebo převodem, ověříte si věk v pokladně bankovní identitou nebo dokladem a stačí to jednou. Když platíte až na prodejně, ukážete občanku u pultu.",
   },
   {
     q: "Můžu si objednávku vyzvednout?",
@@ -52,7 +52,7 @@ const DOTAZY = [
   },
   {
     q: "Jak se dá zaplatit?",
-    a: "Kartou, převodem přes QR kód, při převzetí, nebo až na prodejně, když si objednávku vyzvednete.",
+    a: "Kartou, převodem přes QR kód, nebo až na prodejně, když si objednávku vyzvednete. Na dobírku neposíláme.",
   },
   {
     q: "Kdy to dorazí?",

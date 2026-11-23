@@ -69,10 +69,9 @@ export default function Paticka() {
               18+
             </span>
             <p className="max-w-xl text-sm leading-relaxed text-cream/70">
-              Prodej osobám mladším 18 let je zakázán. U{"\u00a0"}kuřiva a
-              {"\u00a0"}vapů ověřujeme věk už v{"\u00a0"}pokladně, u{"\u00a0"}
-              všeho při předání. Kratom v{"\u00a0"}e-shopu není, ten je jen na
-              prodejnách.
+              Prodej zboží Canapuff osobám mladším 18 let je zakázán, věk
+              ověřujeme v{"\u00a0"}pokladně nebo na prodejně. Kratom
+              v{"\u00a0"}e-shopu není, ten je jen na prodejnách.
             </p>
           </div>
           <p className="text-sm text-cream/60">
